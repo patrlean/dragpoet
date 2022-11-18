@@ -87,24 +87,35 @@
     <title>适配移动端的拖动效果</title>
     <style>
         #div1{
-            height: 100px;
+            height: 1000px;
         }
         #div2{
-            position: absolute;
-            top:0;
-            left:0;
-            width: 80px;
-            height: 25px;
-            background: #bbbbbb;
+            position: relative;
+            top:100px;
+            left:100px;
+            width: 400px;
+            height: 125px;
+            background: #47d580;
         }
     </style>
 </head>
 <body>
 <div id="div1">
     <div id="div2">
-        <text transform="matrix(1 0 0 1 840 420)">培养皿</text>
+        0<text>培养皿</text>
     </div>
 </div>
+<div id="div1">
+    <div id="div2">
+        1<text>皿</text>
+    </div>
+</div>
+<div id="div1">
+    <div id="div2">
+        2<text>培</text>
+    </div>
+</div>
+
 <script>
     var flag = false;
     var cur = {
