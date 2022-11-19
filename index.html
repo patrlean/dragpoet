@@ -84,29 +84,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3">
     <title>适配移动端的拖动效果</title>
     <style>
         #div1{
-            height: 1000px;
+            height: 100px;
+            background-color: antiquewhite;
         }
         #div2{
             position: relative;
-            top:100px;
+            top:10px;
             left:100px;
-            width: 400px;
-            height: 125px;
+            width: 100px;
+            height: 30px;
             background: #47d580;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            border-radius: 6px;
+            border-color: black;
+            border-width: 4px;
         }
     </style>
 </head>
 <body>
 <div id="div1">
     <div id="div2">
-        0<text>培养皿</text>
+        <text>培养皿</text>
+        <button type="button" onclick="alert('我爱你')">click me!</button>
     </div>
 </div>
 
 <script>
+    document.write("<p>啦啦啦我爱你</p>")
     var flag = false;
     var cur = {
         x:0,
