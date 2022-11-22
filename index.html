@@ -84,7 +84,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="3">
+    <!-- <meta http-equiv="refresh" content="3"> -->
     <title>适配移动端的拖动效果</title>
     <style>
         #div1{
@@ -105,80 +105,121 @@
             border-color: black;
             border-width: 4px;
         }
+        #text{
+            background-color: bisque;
+            font-size: 20px;
+            border-radius: 8px;
+            border-width: 2px;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            border-style: dashed;
+        }
     </style>
 </head>
 <body>
-<div id="div1">
-    <div id="div2">
-        <text>培养皿</text>
-        <button type="button" onclick="alert('我爱你')">click me!</button>
-    </div>
+
+<div id="text" style="position:relative;left:200px;">
+    <text id="量子力学" onclick="myFunction(this)">量子力学</text><br/>
+</div>
+<div id="text">
+    <text id="品学楼" onclick="myFunction(this)">品学楼</text><br/>
+</div>
+<div id="text">
+    <text id="我" onclick="myFunction(this)">我</text><br/>
+</div>
+<div id="text">
+    <text id="爱" onclick="myFunction(this)">爱</text><br/>
+</div>
+<div id="按钮">
+    <button type="button" onclick="generateSentence()">生成句子</button>
 </div>
 
+
 <script>
-    document.write("<p>啦啦啦我爱你</p>")
-    var flag = false;
-    var cur = {
-        x:0,
-        y:0
+    // 变量定义
+    var wordSet = new Array();
+    
+    // 函数
+    // 加入新词
+    function myFunction(obj) {
+        newWord = document.getElementById(obj.id).innerText;
+        wordSet.push(newWord);
+        alert(newWord);    
     }
-    var nx,ny,dx,dy,x,y ;
-    function down(){
-        flag = true;
-        var touch ;
-        if(event.touches){
-            touch = event.touches[0];
-        }else {
-            touch = event;
-        }
-        cur.x = touch.clientX;
-        cur.y = touch.clientY;
-        dx = div2.offsetLeft;
-        dy = div2.offsetTop;
+
+    // 生成句子
+    function generateSentence(){
+        sentence = wordSet.join("");
+        alert(sentence);
     }
-    function move(){
-        if(flag){
-            var touch ;
-            if(event.touches){
-                touch = event.touches[0];
-            }else {
-                touch = event;
-            }
-            nx = touch.clientX - cur.x;
-            ny = touch.clientY - cur.y;
-            x = dx+nx;
-            y = dy+ny;
-            div2.style.left = x+"px";
-            div2.style.top = y +"px";
-            //阻止页面的滑动默认事件
-            document.addEventListener("touchmove",function(){
-                event.preventDefault();
-            },false);
-        }
-    }
-    //鼠标释放时候的函数
-    function end(){
-        flag = false;
-    }
-    var div2 = document.getElementById("div2");
-    div2.addEventListener("mousedown",function(){
-        down();
-    },false);
-    div2.addEventListener("touchstart",function(){
-        down();
-    },false)
-    div2.addEventListener("mousemove",function(){
-        move();
-    },false);
-    div2.addEventListener("touchmove",function(){
-        move();
-    },false)
-    document.body.addEventListener("mouseup",function(){
-        end();
-    },false);
-    div2.addEventListener("touchend",function(){
-        end();
-    },false);
+    console.log(wordSet);
+</script>
+
+<script>
+    // document.write("<p>啦啦啦我爱你</p>")
+    // var flag = false;
+    // var cur = {
+    //     x:0,
+    //     y:0
+    // }
+    // var nx,ny,dx,dy,x,y ;
+    // function down(){
+    //     flag = true;
+    //     var touch ;
+    //     if(event.touches){
+    //         touch = event.touches[0];
+    //     }else {
+    //         touch = event;
+    //     }
+    //     cur.x = touch.clientX;
+    //     cur.y = touch.clientY;
+    //     dx = div2.offsetLeft;
+    //     dy = div2.offsetTop;
+    // }
+    // function move(){
+    //     if(flag){
+    //         var touch ;
+    //         if(event.touches){
+    //             touch = event.touches[0];
+    //         }else {
+    //             touch = event;
+    //         }
+    //         nx = touch.clientX - cur.x;
+    //         ny = touch.clientY - cur.y;
+    //         x = dx+nx;
+    //         y = dy+ny;
+    //         div2.style.left = x+"px";
+    //         div2.style.top = y +"px";
+    //         //阻止页面的滑动默认事件
+    //         document.addEventListener("touchmove",function(){
+    //             event.preventDefault();
+    //         },false);
+    //     }
+    // }
+    // //鼠标释放时候的函数
+    // function end(){
+    //     flag = false;
+    // }
+    // var div2 = document.getElementById("div2");
+    // div2.addEventListener("mousedown",function(){
+    //     down();
+    // },false);
+    // div2.addEventListener("touchstart",function(){
+    //     down();
+    // },false)
+    // div2.addEventListener("mousemove",function(){
+    //     move();
+    // },false);
+    // div2.addEventListener("touchmove",function(){
+    //     move();
+    // },false)
+    // document.body.addEventListener("mouseup",function(){
+    //     end();
+    // },false);
+    // div2.addEventListener("touchend",function(){
+    //     end();
+    // },false);
 </script>
 </body>
 </html>
