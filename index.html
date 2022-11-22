@@ -9,27 +9,56 @@
         .viewport {
             width: 100%;
         }
+        .verse{
+            background-color: rgb(255, 255, 255);
+            /* margin */
+            margin: 4px;
+            /* border */
+            border-style: dashed;
+            border-radius: 8px;
+            border-width: 2px;
+            /* padding */
+            padding: 2px;
+            /* content */
+            font-size: 28px;
+            font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
+            text-align: center;
+            width:auto; 
+            display:inline-block !important; display:inline;
+        }
         #outerBox{
             border-radius: 2em;
             border-style: groove;
             background-color: rgb(254, 251, 248);
+            margin: 6px;
 
         }
         #开头文字{
             text-align: center;
+            margin-bottom: 2em;
             
         }
         #text{
-            background-color: rgb(228, 177, 118);
-            font-size: 20px;
-            font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
+            background-color: rgb(255, 255, 255);
+            /* margin */
+            margin: 4px;
+            /* border */
+            border-style: dashed;
             border-radius: 8px;
             border-width: 2px;
-            height: 30px;
+            /* padding */
+            padding: 2px;
+            /* content */
+            font-size: 15px;
+            font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
             text-align: center;
-            border-style: dashed;
+            width:auto; 
+            display:inline-block !important; display:inline;
+            
         }
         #按钮{
+            margin: 6px;
+            margin-top: 2em;
             text-align: center;
         }
     </style>
@@ -40,18 +69,14 @@
     </br>
     </div>
     <div id="outerBox">
-        <div id="text" style="position:relative;left:200px;">
-            <text id="量子力学" onclick="myFunction(this)">量子力学</text><br/>
-        </div>
-        <div id="text" style="width:100px;">
-            <text id="品学楼" onclick="myFunction(this)">品学楼</text>
-        </div>
-        <div id="text">
-            <text id="我" onclick="myFunction(this)">我</text><br/>
-        </div>
-        <div id="text">
-            <text id="爱" onclick="myFunction(this)">爱</text><br/>
-        </div>
+        <span id="量子力学" class="verse" onclick="myFunction(this)">量子力学</span>
+        <span id="品学楼" class="verse" onclick="myFunction(this)">品学楼</span>
+        <span id="我" class="verse" onclick="myFunction(this)">我</span>
+        <span id="爱" class="verse" onclick="myFunction(this)">爱</span>
+        <span id="他" class="verse" onclick="myFunction(this)">他</span>
+        <span id="她" class="verse" onclick="myFunction(this)">她</span>
+        <span id="麦克斯韦雕像" class="verse" onclick="myFunction(this)">麦克斯韦雕像</span>
+        <span id="学子餐厅" class="verse" onclick="myFunction(this)">学子餐厅</span>
     </div>
 
     <div id="按钮">
@@ -64,9 +89,16 @@
     // 函数
     // 加入新词
     function myFunction(obj) {
-        newWord = document.getElementById(obj.id).innerText;
-        wordSet.push(newWord);
-        alert(newWord);    
+        elem = document.getElementById(obj.id);
+        // if (elem.style.border-style == 'dashed'){
+            newWord = elem.innerText;
+            elem.style.backgroundColor = "rgb(243, 236, 176)";
+            wordSet.push(newWord);
+        // }
+        // else{
+        //     elem.style.border-style == dashed;
+        // }
+        
     }
 
     // 生成句子
