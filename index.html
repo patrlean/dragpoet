@@ -82,26 +82,26 @@
 </head>
 <body>
     <div id="开头文字">
-        从虚线方框中选择你想要的词语组成句子叭~
+        动动小手从虚框中pick词语组成句子叭~
     </br>
     </div>
     <div id="outerBox">
         <span id="量子力学" class="verse" onclick="myFunction(this)">量子力学</span>
         <span id="品学楼" class="verse" onclick="myFunction(this)">品学楼</span>
         <span id="我" class="verse" onclick="myFunction(this)">我</span>
-        <span id="爱" class="verse" onclick="myFunction(this)">爱</span>
-        <span id="他" class="verse" onclick="myFunction(this)">他</span>
+        <span id="爱" class="verse" value='0' onclick="myFunction(this)">爱</span>
+        <span id="他1" class="verse" value='0' onclick="myFunction(this)">他</span>
         <span id="她" class="verse" onclick="myFunction(this)">她</span>
         <span id="麦克斯韦雕像" class="verse" onclick="myFunction(this)">麦克斯韦雕像</span>
         <span id="学子餐厅" class="verse" onclick="myFunction(this)">学子餐厅</span>
         <span id="夕阳" class="verse" onclick="myFunction(this)">夕阳</span>
         <span id="平行宇宙" class="verse" onclick="myFunction(this)">平行宇宙</span>
         <span id="是" class="verse" onclick="myFunction(this)">是</span>
-        <span id="的" class="verse" onclick="myFunction(this)">的</span>
+        <span id="的1" class="verse" onclick="myFunction(this)">的</span>
         <span id="心" class="verse" onclick="myFunction(this)">心</span>
         <span id="让我们在一起" class="verse-double" onclick="myFunction(this)">让我们<br/>在一起</span>
-        <span id="的" class="verse" onclick="myFunction(this)">的</span>
-        <span id="他" class="verse" onclick="myFunction(this)">他</span>
+        <span id="的2" class="verse" onclick="myFunction(this)">的</span>
+        <span id="他2" class="verse" value='0' onclick="myFunction(this)">他</span>
         <span id="永远" class="verse" onclick="myFunction(this)">永远</span>
         <span id="故事" class="verse" onclick="myFunction(this)">故事</span>
         <span id="ta" class="verse" onclick="myFunction(this)">ta</span>
@@ -119,14 +119,20 @@
     // 加入新词
     function myFunction(obj) {
         elem = document.getElementById(obj.id);
-        // if (elem.style.border-style == 'dashed'){
-            newWord = elem.innerText;
+        newWord = elem.innerText;
+        if (elem.value == '0'){
             elem.style.backgroundColor = "rgb(243, 236, 176)";
             wordSet.push(newWord);
-        // }
-        // else{
-        //     elem.style.border-style == dashed;
-        // }
+            elem.value = "1";
+        }
+        else{
+            elem.style.backgroundColor = "white";
+            const index = wordSet.indexOf(newWord);
+            if (index > -1) { // 移除找到的指定元素
+            wordSet.splice(index, 1); // 移除元素
+            }
+            elem.value = '0'; 
+        }
         
     }
 
@@ -135,73 +141,9 @@
         sentence = wordSet.join("");
         alert(sentence);
     }
-    console.log(wordSet);
-</script>
+    
+    // 删除指定元素
 
-<script>
-    // document.write("<p>啦啦啦我爱你</p>")
-    // var flag = false;
-    // var cur = {
-    //     x:0,
-    //     y:0
-    // }
-    // var nx,ny,dx,dy,x,y ;
-    // function down(){
-    //     flag = true;
-    //     var touch ;
-    //     if(event.touches){
-    //         touch = event.touches[0];
-    //     }else {
-    //         touch = event;
-    //     }
-    //     cur.x = touch.clientX;
-    //     cur.y = touch.clientY;
-    //     dx = div2.offsetLeft;
-    //     dy = div2.offsetTop;
-    // }
-    // function move(){
-    //     if(flag){
-    //         var touch ;
-    //         if(event.touches){
-    //             touch = event.touches[0];
-    //         }else {
-    //             touch = event;
-    //         }
-    //         nx = touch.clientX - cur.x;
-    //         ny = touch.clientY - cur.y;
-    //         x = dx+nx;
-    //         y = dy+ny;
-    //         div2.style.left = x+"px";
-    //         div2.style.top = y +"px";
-    //         //阻止页面的滑动默认事件
-    //         document.addEventListener("touchmove",function(){
-    //             event.preventDefault();
-    //         },false);
-    //     }
-    // }
-    // //鼠标释放时候的函数
-    // function end(){
-    //     flag = false;
-    // }
-    // var div2 = document.getElementById("div2");
-    // div2.addEventListener("mousedown",function(){
-    //     down();
-    // },false);
-    // div2.addEventListener("touchstart",function(){
-    //     down();
-    // },false)
-    // div2.addEventListener("mousemove",function(){
-    //     move();
-    // },false);
-    // div2.addEventListener("touchmove",function(){
-    //     move();
-    // },false)
-    // document.body.addEventListener("mouseup",function(){
-    //     end();
-    // },false);
-    // div2.addEventListener("touchend",function(){
-    //     end();
-    // },false);
 </script>
 </body>
 </html>
