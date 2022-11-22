@@ -2,147 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="refresh" content="3"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>拼贴诗词</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        .viewport {
-            width: 100%;
-        }
-        .verse{
-            background-color: white;
-            /* margin */
-            margin: 4px;
-            /* border */
-            border-style: dashed;
-            border-radius: 8px;
-            border-width: 2px;
-            /* padding */
-            padding: 2px;
-            /* content */
-            font-size: 14px;
-            font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
-            text-align: center;
-            width:auto; 
-            display:inline-block !important; display:inline;
-        }
-        .verse-double{
-            background-color: rgb(255, 255, 255);
-            /* margin */
-            margin: 4px;
-            /* border */
-            border-style: dashed;
-            border-radius: 8px;
-            border-width: 2px;
-            /* padding */
-            padding: 2px;
-            /* content */
-            font-size: 8px;
-            font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
-            text-align: center;
-            width:auto; 
-            display:inline-block !important; display:inline;
-        }
-        #outerBox{
-            border-radius: 2em;
-            border-style: groove;
-            background-color: rgb(254, 251, 248);
-            margin: 6px;
-
-        }
-        #开头文字{
-            text-align: center;
-            margin-bottom: 2em;
-            
-        }
-        #text{
-            background-color:'white';
-            /* margin */
-            margin: 4px;
-            /* border */
-            border-style: dashed;
-            border-radius: 8px;
-            border-width: 2px;
-            /* padding */
-            padding: 2px;
-            /* content */
-            font-size: 15px;
-            font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
-            text-align: center;
-            width:auto; 
-            display:inline-block !important; display:inline;
-            
-        }
-        #按钮{
-            margin: 6px;
-            margin-top: 2em;
-            text-align: center;
-        }
+        
     </style>
 </head>
 <body>
-    <div id="开头文字">
-        动动小手从虚框中pick词语组成句子叭~
-    </br>
-    </div>
-    <div id="outerBox">
-        <span id="量子力学" class="verse" onclick="myFunction(this)" style="background-color: white;">量子力学</span>
-        <span id="品学楼" class="verse" onclick="myFunction(this)" style="background-color: white;">品学楼</span>
-        <span id="我" class="verse" onclick="myFunction(this)" style="background-color: white;">我</span>
-        <span id="爱" class="verse" onclick="myFunction(this)" style="background-color: white;">爱</span>
-        <span id="他一" class="verse" onclick="myFunction(this)" style="background-color: white;">他</span>
-        <span id="她" class="verse" onclick="myFunction(this)" style="background-color: white;">她</span>
-        <span id="麦克斯韦雕像" class="verse" onclick="myFunction(this)" style="background-color: white;">麦克斯韦雕像</span>
-        <span id="学子餐厅" class="verse" onclick="myFunction(this)" style="background-color: white;">学子餐厅</span>
-        <span id="夕阳" class="verse" onclick="myFunction(this)" style="background-color: white;">夕阳</span>
-        <span id="平行宇宙" class="verse" onclick="myFunction(this)" style="background-color: white;">平行宇宙</span>
-        <span id="是" class="verse" onclick="myFunction(this)" style="background-color: white;">是</span>
-        <span id="的一" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
-        <span id="心" class="verse" onclick="myFunction(this)" style="background-color: white;">心</span>
-        <span id="让我们在一起" class="verse-double" onclick="myFunction(this)" style="background-color: white;">让我们<br/>在一起</span>
-        <span id="的一" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
-        <span id="他二" class="verse" value='0' onclick="myFunction(this)" style="background-color: white;" style="background-color: white;">他</span>
-        <span id="永远" class="verse" onclick="myFunction(this)" style="background-color: white;">永远</span>
-        <span id="故事" class="verse" onclick="myFunction(this)" style="background-color: white;">故事</span>
-        <span id="ta" class="verse" onclick="myFunction(this)" style="background-color: white;">ta</span>
-        <span id="小狗" class="verse" onclick="myFunction(this)" style="background-color: white;">小狗</span>
-    </div>
-
-    <div id="按钮">
-        <button type="button" onclick="generateSentence()">生成句子</button>
-    </div>
-<script>
-    // 变量定义
-    var wordSet = new Array();
-    // 函数
-    // 加入新词
-    function myFunction(obj) {
-        
-        elem = document.getElementById(obj.id);
-        newWord = elem.innerText;
-        // console.log(elem.style.backgroundColor);
-        if (elem.style.backgroundColor == "white"){
-            elem.style.backgroundColor = "rgb(243, 236, 176)";
-            wordSet.push(newWord);
-        }
-        else{
-            elem.style.backgroundColor = "white";
-            const index = wordSet.indexOf(newWord);
-            if (index > -1) { // 移除找到的指定元素
-            wordSet.splice(index, 1); // 移除元素
-            }
-        }
-        
-    }
-
-    // 生成句子
-    function generateSentence(){
-        sentence = wordSet.join("");
-        alert(sentence);
-    }
-    
-    // 删除指定元素
-
-</script>
+<div>
+    <a href="test.html"><img src="https://img-blog.csdnimg.cn/f26f56060d6a43ef91607c9d17f77643.gif" /></a>
+</div>
 </body>
 </html>
