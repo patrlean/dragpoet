@@ -1,0 +1,84 @@
+.viewport {
+    width: 100%;
+}
+.verse{
+    background-color: white;
+    /* margin */
+    margin: 4px;
+    /* border */
+    border-style: dashed;
+    border-radius: 8px;
+    border-width: 2px;
+    /* padding */
+    padding: 2px;
+    /* content */
+    font-size: 14px;
+    font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
+    text-align: center;
+    width:auto; 
+    display:inline-block !important; display:inline;
+}
+.verse-double{
+    background-color: rgb(255, 255, 255);
+    /* margin */
+    margin: 4px;
+    /* border */
+    border-style: dashed;
+    border-radius: 8px;
+    border-width: 2px;
+    /* padding */
+    padding: 2px;
+    /* content */
+    font-size: 8px;
+    font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
+    text-align: center;
+    width:auto; 
+    display:inline-block !important; display:inline;
+}
+.cardBackground {
+    background-color: rgb(27, 28, 32);
+}
+.cardText {
+    color: rgb(255, 239, 209);
+}
+#outerBox{
+    /* margin */
+    margin: 6px;
+    /* border */
+    border-radius: 1em;
+    border-style: groove;
+    /* padding */
+    padding-top: 1em;
+    padding-bottom:1em;
+    background-color: rgb(254, 251, 248);
+
+}
+#开头文字{
+    text-align: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    
+}
+#text{
+    background-color:'white';
+    /* margin */
+    margin: 4px;
+    /* border */
+    border-style: dashed;
+    border-radius: 8px;
+    border-width: 2px;
+    /* padding */
+    padding: 2px;
+    /* content */
+    font-size: 15px;
+    font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
+    text-align: center;
+    width:auto; 
+    display:inline-block !important; display:inline;
+    
+}
+.按钮{
+    margin: 6px;
+    margin-top: 2em;
+    text-align: center;     
+}
