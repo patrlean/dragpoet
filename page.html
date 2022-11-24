@@ -40,9 +40,9 @@
             <button type="button" class="按钮" onclick="generateSentence()">生成句子！</button>
             <button type="button" class="按钮" onclick="someMagic()">一点灵感？</button>
         </div>
-        <!-- <div hidden="hidden"> -->
+        <div hidden="hidden">
             <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;"></canvas>
-        <!-- </div> -->
+        </div>
     </div>
 
     <div id="输出图像" style="display: none">
@@ -79,7 +79,7 @@
     function generateSentence() {
         // 组合句子
         sentence = wordSet.join("");
-        alert(sentence);
+        // alert(sentence);
         // 创建canvas绘图元素
         var c = document.getElementById('myCanvas');
         var ctx = c.getContext('2d');
@@ -98,11 +98,7 @@
         var imgPage = document.getElementById("输出图像");
         imgPage.style.display = "flex";
         imgPage.innerHTML = '<img src="' + dataImg.src + '" alt="">';
-        // document.body.appendChild(dataImg);
-        // document.outerHtml = dataImg;
-        // var newWindow = window.open("");
-        // newWindow.document.body.innerHTML = '<img src="' + dataImg.src + '" alt="">';
-        // newWindow.document.body.innerHTML = dataImg;
+        
     }
     
     // 一点灵感
