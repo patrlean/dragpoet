@@ -40,7 +40,7 @@
         <button type="button" class="按钮" onclick="someMagic()">一点灵感？</button>
     </div>
     <!-- <div hidden="hidden"> -->
-        <canvas id="myCanvas" width="600" height="700" style="border:2px dashed #000000;"></canvas>
+        <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;"></canvas>
     <!-- </div> -->
     
 <script>
@@ -89,7 +89,9 @@
         var dataImg = new Image()
         dataImg.src = c.toDataURL('image/png',1.0);
         document.body.appendChild(dataImg);
-
+        // document.outerHtml = dataImg;
+        var newWindow = window.open("");
+        newWindow.document.body.innerHTML = '<img src="' + dataImg.src + '" alt="">';
     }
     
     // 一点灵感
