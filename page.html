@@ -8,40 +8,46 @@
     <link href="style.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-    <div id="开头文字">
-        动动小手从虚框中pick词语开始创作叭~
-    </br>
-    </div>
-    <div id="outerBox">
-        <span id="量子力学" class="verse" onclick="myFunction(this)" style="background-color: white;">量子力学</span>
-        <span id="品学楼" class="verse" onclick="myFunction(this)" style="background-color: white;">品学楼</span>
-        <span id="我" class="verse" onclick="myFunction(this)" style="background-color: white;">我</span>
-        <span id="爱" class="verse" onclick="myFunction(this)" style="background-color: white;">爱</span>
-        <span id="他一" class="verse" onclick="myFunction(this)" style="background-color: white;">他</span>
-        <span id="她" class="verse" onclick="myFunction(this)" style="background-color: white;">她</span>
-        <span id="麦克斯韦雕像" class="verse" onclick="myFunction(this)" style="background-color: white;">麦克斯韦雕像</span>
-        <span id="学子餐厅" class="verse" onclick="myFunction(this)" style="background-color: white;">学子餐厅</span>
-        <span id="夕阳" class="verse" onclick="myFunction(this)" style="background-color: white;">夕阳</span>
-        <span id="平行宇宙" class="verse" onclick="myFunction(this)" style="background-color: white;">平行宇宙</span>
-        <span id="是" class="verse" onclick="myFunction(this)" style="background-color: white;">是</span>
-        <span id="的一" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
-        <span id="心" class="verse" onclick="myFunction(this)" style="background-color: white;">心</span>
-        <span id="让我们在一起" class="verse-double" onclick="myFunction(this)" style="background-color: white;">让我们<br/>在一起</span>
-        <span id="的二" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
-        <span id="他二" class="verse" value='0' onclick="myFunction(this)" style="background-color: white;" style="background-color: white;">他</span>
-        <span id="永远" class="verse" onclick="myFunction(this)" style="background-color: white;">永远</span>
-        <span id="故事" class="verse" onclick="myFunction(this)" style="background-color: white;">故事</span>
-        <span id="ta" class="verse" onclick="myFunction(this)" style="background-color: white;">ta</span>
-        <span id="小狗" class="verse" onclick="myFunction(this)" style="background-color: white;">小狗</span>
+    <div id="拼词页面">
+        <div id="开头文字">
+            动动小手从虚框中pick词语开始创作叭~
+        </br>
+        </div>
+        <div id="outerBox">
+            <span id="量子力学" class="verse" onclick="myFunction(this)" style="background-color: white;">量子力学</span>
+            <span id="品学楼" class="verse" onclick="myFunction(this)" style="background-color: white;">品学楼</span>
+            <span id="我" class="verse" onclick="myFunction(this)" style="background-color: white;">我</span>
+            <span id="爱" class="verse" onclick="myFunction(this)" style="background-color: white;">爱</span>
+            <span id="他一" class="verse" onclick="myFunction(this)" style="background-color: white;">他</span>
+            <span id="她" class="verse" onclick="myFunction(this)" style="background-color: white;">她</span>
+            <span id="麦克斯韦雕像" class="verse" onclick="myFunction(this)" style="background-color: white;">麦克斯韦雕像</span>
+            <span id="学子餐厅" class="verse" onclick="myFunction(this)" style="background-color: white;">学子餐厅</span>
+            <span id="夕阳" class="verse" onclick="myFunction(this)" style="background-color: white;">夕阳</span>
+            <span id="平行宇宙" class="verse" onclick="myFunction(this)" style="background-color: white;">平行宇宙</span>
+            <span id="是" class="verse" onclick="myFunction(this)" style="background-color: white;">是</span>
+            <span id="的一" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
+            <span id="心" class="verse" onclick="myFunction(this)" style="background-color: white;">心</span>
+            <span id="让我们在一起" class="verse-double" onclick="myFunction(this)" style="background-color: white;">让我们<br/>在一起</span>
+            <span id="的二" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
+            <span id="他二" class="verse" value='0' onclick="myFunction(this)" style="background-color: white;" style="background-color: white;">他</span>
+            <span id="永远" class="verse" onclick="myFunction(this)" style="background-color: white;">永远</span>
+            <span id="故事" class="verse" onclick="myFunction(this)" style="background-color: white;">故事</span>
+            <span id="ta" class="verse" onclick="myFunction(this)" style="background-color: white;">ta</span>
+            <span id="小狗" class="verse" onclick="myFunction(this)" style="background-color: white;">小狗</span>
+        </div>
+
+        <div>
+            <button type="button" class="按钮" onclick="generateSentence()">生成句子！</button>
+            <button type="button" class="按钮" onclick="someMagic()">一点灵感？</button>
+        </div>
+        <!-- <div hidden="hidden"> -->
+            <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;"></canvas>
+        <!-- </div> -->
     </div>
 
-    <div>
-        <button type="button" class="按钮" onclick="generateSentence()">生成句子！</button>
-        <button type="button" class="按钮" onclick="someMagic()">一点灵感？</button>
+    <div id="输出图像" style="display: none">
+        <img>
     </div>
-    <!-- <div hidden="hidden"> -->
-        <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;"></canvas>
-    <!-- </div> -->
     
 <script>
     // 变量定义
@@ -85,13 +91,18 @@
         ctx.font="14px Arial";
         ctx.fillText(sentence,10,50);
         // 生成图像
-        
         var dataImg = new Image()
         dataImg.src = c.toDataURL('image/png',1.0);
-        document.body.appendChild(dataImg);
+        var page = document.getElementById("拼词页面");
+        page.style.display = "none";
+        var imgPage = document.getElementById("输出图像");
+        imgPage.style.display = "flex";
+        imgPage.innerHTML = '<img src="' + dataImg.src + '" alt="">';
+        // document.body.appendChild(dataImg);
         // document.outerHtml = dataImg;
-        var newWindow = window.open("");
-        newWindow.document.body.innerHTML = '<img src="' + dataImg.src + '" alt="">';
+        // var newWindow = window.open("");
+        // newWindow.document.body.innerHTML = '<img src="' + dataImg.src + '" alt="">';
+        // newWindow.document.body.innerHTML = dataImg;
     }
     
     // 一点灵感
