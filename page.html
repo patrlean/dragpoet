@@ -46,13 +46,13 @@
 <script>
     // 变量定义
     var wordSet = new Array();
+    var img = new Image();
     const WORDNON = ['量子力学'];
     const WORDCONJ = [''];
     const WORDSTATE = ['让我们在一起'];
     // 函数
     // 加入新词
     function myFunction(obj) {
-        
         elem = document.getElementById(obj.id);
         newWord = elem.innerText;
         // console.log(elem.style.backgroundColor);
@@ -67,25 +67,41 @@
             wordSet.splice(index, 1); // 移除元素
             }
         }
-        
     }
 
     // 生成句子
-    function generateSentence(){
+    function generateSentence() {
+        // 组合句子
         sentence = wordSet.join("");
         alert(sentence);
+        // 创建canvas绘图元素
         var c = document.getElementById('myCanvas');
         var ctx = c.getContext('2d');
+        var w = c.width;
+        var h = c.height;
+        c.width = w;
+        c.height = h;
         ctx.fillStyle = "rgb(27, 28, 32)";
-        ctx.font="30px Arial";
+        ctx.font="14px Arial";
         ctx.fillText(sentence,10,50);
+        // 生成图像
+        
+        var dataImg = new Image()
+        dataImg.src = c.toDataURL('image/png',1.0);
+        document.body.appendChild(dataImg);
+
     }
     
     // 一点灵感
     function someMagic() {
         
     }
-    //
+    // Converts canvas to an image
+    function convertCanvasToImage(canvas) {
+        var image = new Image();
+        image.src = canvas.toDataURL("image/png");
+        return image;
+    }
 </script>
 </body>
 </html>
