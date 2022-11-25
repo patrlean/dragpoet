@@ -88,15 +88,22 @@
         sentence = wordSet.join("");
         // alert(sentence);
         // 创建canvas绘图元素
-        var c = document.getElementById('myCanvas');
-        var ctx = c.getContext('2d');
-        var w = c.width;
-        var h = c.height;
-        c.width = w;
-        c.height = h;
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var ratio = window.devicePixelRatio || 1;
+        canvas.style.width = canvas.width + 'px';
+        canvas.style.height = canvas.height + 'px';
+        canvas.width = canvas.width * ratio;
+        canvas.height = canvas.height * ratio;
+        ctx.scale(ratio,ratio);
+
+        // var w = canvas.width;
+        // var h = canvas.height;
+        // canvas.width = w;
+        // canvas.height = h;
         // 设置背景颜色
         ctx.fillStyle = '#1b1c20';
-        ctx.fillRect(0, 0, c.width, c.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // 设置背景文字
         ctx.font="14px Arial";
@@ -106,7 +113,7 @@
 
         // 生成图像
         var dataImg = new Image()
-        dataImg.src = c.toDataURL('image/png',1.0);
+        dataImg.src = canvas.toDataURL('image/png',1.0);
         // 设置display变换
         var page = document.getElementById("拼词页面");
         page.style.display = "none";
