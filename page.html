@@ -14,6 +14,7 @@
         </br>
         </div>
         <div id="outerBox">
+            
             <span id="量子力学" class="verse" onclick="myFunction(this)" style="background-color: white;">量子力学</span>
             <span id="品学楼" class="verse" onclick="myFunction(this)" style="background-color: white;">品学楼</span>
             <span id="我" class="verse" onclick="myFunction(this)" style="background-color: white;">我</span>
@@ -34,9 +35,10 @@
             <span id="故事" class="verse" onclick="myFunction(this)" style="background-color: white;">故事</span>
             <span id="ta" class="verse" onclick="myFunction(this)" style="background-color: white;">ta</span>
             <span id="小狗" class="verse" onclick="myFunction(this)" style="background-color: white;">小狗</span>
+            
         </div>
 
-        <div>
+        <div class="按钮">
             <button type="button" class="按钮" onclick="generateSentence()">生成句子！</button>
             <button type="button" class="按钮" onclick="someMagic()">一点灵感？</button>
         </div>
@@ -45,8 +47,13 @@
         </div>
     </div>
 
-    <div id="输出图像" style="display: none">
-        <img>
+    <div id="输出图像" style="display: none;text-align: center;">
+        <div id="输出图像单独图像">
+            <img>
+        </div>
+        <div class="按钮">
+            <button type="button" onclick="back2page()">返回</button>
+        </div>
     </div>
     
 <script>
@@ -87,17 +94,27 @@
         var h = c.height;
         c.width = w;
         c.height = h;
-        ctx.fillStyle = "rgb(27, 28, 32)";
+        // 设置背景颜色
+        ctx.fillStyle = '#1b1c20';
+        ctx.fillRect(0, 0, c.width, c.height);
+        
+        // 设置背景文字
         ctx.font="14px Arial";
-        ctx.fillText(sentence,10,50);
+        ctx.fillStyle = "#ccc1b0";
+        ctx.textAlign = "center";
+        ctx.fillText(sentence,100,300);
+
         // 生成图像
         var dataImg = new Image()
         dataImg.src = c.toDataURL('image/png',1.0);
+        // 设置display变换
         var page = document.getElementById("拼词页面");
         page.style.display = "none";
         var imgPage = document.getElementById("输出图像");
-        imgPage.style.display = "flex";
-        imgPage.innerHTML = '<img src="' + dataImg.src + '" alt="">';
+        var imgPageSingle = document.getElementById("输出图像单独图像");
+        imgPage.style.display = "block";
+        imgPageSingle.innerHTML = '<img style="text-align: center;" src="' + dataImg.src + '" alt="">';
+        
         
     }
     
@@ -111,6 +128,14 @@
         image.src = canvas.toDataURL("image/png");
         return image;
     }
+    // 返回页面
+    function back2page() {
+        var page = document.getElementById("拼词页面");
+        page.style.display = "block";
+        var imgPage = document.getElementById("输出图像");
+        imgPage.style.display = "none";
+    }
+
 </script>
 </body>
 </html>

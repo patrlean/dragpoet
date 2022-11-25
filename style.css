@@ -80,5 +80,6 @@
 .按钮{
     margin: 6px;
     margin-top: 2em;
+    padding: 2px;
     text-align: center;     
 }
