@@ -62,15 +62,13 @@
 #text{
     background-color:'white';
     /* margin */
-    margin: 4px;
+    margin-top: 2em;
     /* border */
-    border-style: dashed;
-    border-radius: 8px;
-    border-width: 2px;
+    
     /* padding */
     padding: 2px;
     /* content */
-    font-size: 15px;
+    font-size: 14px;
     font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
     text-align: center;
     width:auto; 
