@@ -86,14 +86,14 @@
     /* 清除背景色 */
     background: transparent; 
     /* 边框样式、颜色、宽度 */
-    border: 2px dashed #000000;
+    border: 1px solid #000000;
     /* 给边框添加圆角 */
-    border-radius: 6px; 
+    border-radius: 4px; 
     /* 字母转大写 */
-    padding: 8px 16px;
+    padding: 6px 12px;
     text-align: center;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     margin: 4px 2px;
 }
 .按钮{
