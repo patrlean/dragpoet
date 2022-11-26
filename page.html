@@ -37,6 +37,7 @@
             <span id="小狗" class="verse" onclick="myFunction(this)" style="background-color: white;">小狗</span>
             <span id="姗姗来迟" class="verse" onclick="myFunction(this)" style="background-color: white;">姗姗来迟</span>
             <span id="喜欢" class="verse" onclick="myFunction(this)" style="background-color: white;">喜欢</span>
+            <span id="月色" class="verse" onclick="myFunction(this)" style="background-color: white;">月色</span>
         </div>
 
         <div class="按钮">
@@ -124,8 +125,10 @@
         var imgPage = document.getElementById("输出图像");
         var imgPageSingle = document.getElementById("输出图像单独图像");
         imgPage.style.display = "block";
-        imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px" src="' + dataImg.src + '" alt="">';
-        // imgPageSingle.innerHTML = '<img style="text-align: center;width: '+ canvas.width + 'px;height:'+ canvas.height +'px" src="' + dataImg.src + '" alt="">';
+        // 固定图片大小
+        // imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px" src="' + dataImg.src + '" alt="">';
+        // 自适应图片大小
+        imgPageSingle.innerHTML = '<img style="text-align: center;width: '+ canvas.width + 'px;height:'+ canvas.height +'px" src="' + dataImg.src + '" alt="">';
         
         
     }
