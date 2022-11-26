@@ -13,7 +13,7 @@
     padding: 2px;
     /* content */
     font-size: 14px;
-    font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
+    font-family:"myYuan";
     text-align: center;
     width:auto; 
     display:inline-block !important; display:inline;
@@ -30,7 +30,7 @@
     padding: 2px;
     /* content */
     font-size: 8px;
-    font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
+    font-family:"myYuan";
     text-align: center;
     width:auto; 
     display:inline-block !important; display:inline;
@@ -70,7 +70,7 @@
     padding: 2px;
     /* content */
     font-size: 14px;
-    font-family: myYuan;
+    font-family: "myYuan";
     text-align: center;
     width:auto; 
     display:inline-block !important; display:inline;
@@ -84,9 +84,9 @@
 }
 @font-face {
     font-family: "yeZiGong";
-    src: url("/custom/YeZiGongChangYanShanTingXingKai-2.ttf"); /* 省略其他格式 */
+    src: url("./custom/YeZiGongChangYanShanTingXingKai-2.ttf"); /* 省略其他格式 */
   }
 @font-face {
     font-family: "myYuan";
-    src: url("/custom/jingziChunyuanjianfang.ttf");
+    src: url("./custom/jingziChunyuanjianfang.ttf");
 }

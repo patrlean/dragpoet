@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="拼词页面">
-        <div id="开头文字" style="font-family:'myYuan';font-size:14px;">
+        <div id="开头文字" style="font-family:'myYuan';">
             动动小手从虚框中pick词语开始创作叭~
         </br>
         </div>
@@ -53,7 +53,7 @@
         <div id="输出图像单独图像">
             <img>
         </div>
-        <div class="text" style="font-family:'机字经典准圆'">
+        <div class="text" style="font-family:'myYuan'">
             长按图片保存到手机
         </div>
         <div class="按钮">
@@ -126,7 +126,7 @@
         var imgPageSingle = document.getElementById("输出图像单独图像");
         imgPage.style.display = "block";
         // 固定图片大小
-        imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px" src="' + dataImg.src + '" alt="">';
+        imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px" src="' + dataImg.src + '" alt="拼贴诗词" width = "300px" height = "400px">';
         // 自适应图片大小
         // imgPageSingle.innerHTML = '<img style="text-align: center;width: '+ canvas.width + 'px;height:'+ canvas.height +'px" src="' + dataImg.src + '" alt="">';
         
