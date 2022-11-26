@@ -105,8 +105,8 @@
 
 @font-face {
     font-family: "myYezi";
-    src: url('YEFONTYanShanTinXinKai-Regylar.woff') format('woff'),
-        url('YEFONTYanShanTinXinKai-Regylar.woff2') format('woff2'),        
+    src: url('YEFONTYanShanTinXinKai-Regylar.woff2') format('woff2'),
+        url('YEFONTYanShanTinXinKai-Regylar.woff') format('woff'),        
         url("./custom/YeZiGongChangYanShanTingXingKai-2.ttf"); 
     font-weight: normal;
     font-style: normal;

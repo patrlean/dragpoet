@@ -9,6 +9,9 @@
 </head>
 <body>
     <div id="拼词页面">
+        <div hidden="hidden" style="font-family:myYezi;">
+            吃饭
+        </div>
         <div id="开头文字" style="font-family:'myYuan';">
             动动小手从虚框中pick词语开始创作叭~
         </br>
@@ -28,7 +31,7 @@
             <span id="是" class="verse" onclick="myFunction(this)" style="background-color: white;">是</span>
             <span id="的一" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
             <span id="心" class="verse" onclick="myFunction(this)" style="background-color: white;">心</span>
-            <span id="让我们在一起" class="verse-double" onclick="myFunction(this)" style="background-color: white;">让我们<br/>在一起</span>
+            <span id="让我们在一起" class="verse" onclick="myFunction(this)" style="background-color: white;">让我们在一起</span>
             <span id="的二" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
             <span id="他二" class="verse" value='0' onclick="myFunction(this)" style="background-color: white;" style="background-color: white;">他</span>
             <span id="永远" class="verse" onclick="myFunction(this)" style="background-color: white;">永远</span>
@@ -55,14 +58,23 @@
             <span id="犹豫" class="verse" onclick="myFunction(this)" style="background-color: white;">犹豫</span>
             <span id="食堂" class="verse" onclick="myFunction(this)" style="background-color: white;">食堂</span>
             <span id="落日" class="verse" onclick="myFunction(this)" style="background-color: white;">落日</span>
+            <span id="良夜" class="verse" onclick="myFunction(this)" style="background-color: white;">良夜</span>
+            <span id="不过是" class="verse" onclick="myFunction(this)" style="background-color: white;">不过是</span>
+            <span id="下次一定" class="verse" onclick="myFunction(this)" style="background-color: white;">下次一定</span>
+            <span id="线性代数" class="verse" onclick="myFunction(this)" style="background-color: white;">线性代数</span>
+            <span id="轻轻的" class="verse" onclick="myFunction(this)" style="background-color: white;">轻轻的</span>
+            <span id="拥抱" class="verse" onclick="myFunction(this)" style="background-color: white;">拥抱</span>
+            <span id="们" class="verse" onclick="myFunction(this)" style="background-color: white;">们</span>
+            <span id="不" class="verse" onclick="myFunction(this)" style="background-color: white;">不</span>
+            <span id="小时候" class="verse" onclick="myFunction(this)" style="background-color: white;">小时候</span>
         </div>
 
         <div class="按钮">
             <button type="button" class="btn" onclick="generateSentence()">生成句子</button>
-            <button type="button" class="btn" onclick="someMagic()">一点灵感</button>
+            <!-- <button type="button" class="btn" onclick="someMagic()">一点灵感</button> -->
         </div>
         <div hidden="hidden">
-            <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;"></canvas>
+            <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;">&nbsp;</canvas>
         </div>
     </div>
 
@@ -106,11 +118,12 @@
     
     // 生成句子
     function generateSentence() {
+        
         // 组合句子
         sentence = wordSet.join("");
         // alert(sentence);
         // 创建canvas绘图元素
-        const myFont = new FontFace("myYezi", 'url(./custom/YEFONTYanShanTinXinKai-Regylar.woff)')
+        const myFont = new FontFace("myYezi", 'url(./custom/YEFONTYanShanTinXinKai-Regylar.woff2)');
 
         var canvas = document.getElementById('myCanvas');
         var ctx = canvas.getContext('2d');
@@ -138,7 +151,12 @@
         ctx.textAlign = "left";
         ctx.fillText(sentence,30,50);
 
-        
+        // window.onload = function () {
+        // var canvas = document.getElementById("myCanvas");
+        // var ctx = canvas.getContext("2d");
+        // ctx.font = "30px myYezi";
+        // ctx.fillText("文本内容文本内容", 0, 30);
+      
 
         // 生成图像
         var dataImg = new Image()
