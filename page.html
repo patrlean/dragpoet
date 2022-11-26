@@ -50,7 +50,7 @@
     </div>
 
     <div id="输出图像" style="display: none;text-align: center;">
-        <div id="输出图像单独图像" style="width:300;height:400;">
+        <div id="输出图像单独图像">
             <img>
         </div>
         <div class="text" style="font-family:'机字经典准圆'">
@@ -126,9 +126,9 @@
         var imgPageSingle = document.getElementById("输出图像单独图像");
         imgPage.style.display = "block";
         // 固定图片大小
-        // imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px" src="' + dataImg.src + '" alt="">';
+        imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px" src="' + dataImg.src + '" alt="">';
         // 自适应图片大小
-        imgPageSingle.innerHTML = '<img style="text-align: center;width: '+ canvas.width + 'px;height:'+ canvas.height +'px" src="' + dataImg.src + '" alt="">';
+        // imgPageSingle.innerHTML = '<img style="text-align: center;width: '+ canvas.width + 'px;height:'+ canvas.height +'px" src="' + dataImg.src + '" alt="">';
         
         
     }
