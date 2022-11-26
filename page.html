@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="拼词页面">
-        <div id="开头文字" style="font-family:myYuan;font-size:14px;">
+        <div id="开头文字" style="font-family:'myYuan';font-size:14px;">
             动动小手从虚框中pick词语开始创作叭~
         </br>
         </div>
@@ -44,7 +44,7 @@
             <button type="button" class="按钮" onclick="someMagic()">一点灵感？</button>
         </div>
         <div hidden="hidden">
-            <canvas id="myCanvas" width="300" height="400" style="width:300;height:400;border:2px dashed #000000;"></canvas>
+            <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;"></canvas>
         </div>
     </div>
 
@@ -124,7 +124,8 @@
         var imgPage = document.getElementById("输出图像");
         var imgPageSingle = document.getElementById("输出图像单独图像");
         imgPage.style.display = "block";
-        imgPageSingle.innerHTML = '<img style="text-align: center;" src="' + dataImg.src + '" alt="">';
+        imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px" src="' + dataImg.src + '" alt="">';
+        // imgPageSingle.innerHTML = '<img style="text-align: center;width: '+ canvas.width + 'px;height:'+ canvas.height +'px" src="' + dataImg.src + '" alt="">';
         
         
     }

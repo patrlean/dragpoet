@@ -58,7 +58,7 @@
     margin-bottom: 2em;
     margin-top: 2em;
     /*  */
-    font-family: myYuan;
+    font-family:myYuan;
 }
 #text{
     background-color:'white';
@@ -88,5 +88,5 @@
   }
 @font-face {
     font-family: "myYuan";
-    src: url("/custom/JiZiJingDianZhunYuanJianFan-Shan-2.ttf");
+    src: url("/custom/jingziChunyuanjianfang.ttf");
 }
