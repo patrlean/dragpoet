@@ -84,7 +84,7 @@
 }
 @font-face {
     font-family: "yeZiGong";
-    src: url("./custom/YeZiGongChangYanShanTingXingKai-2.ttf"); /* 省略其他格式 */
+    src: url("./custom/YeZiGongChangYanShanTingXingKai-2.ttf") format('truetype'); 
   }
 @font-face {
     font-family: "myYuan";
