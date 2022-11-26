@@ -15,6 +15,7 @@
     font-size: 14px;
     font-family:"myYuan";
     text-align: center;
+    vertical-align: middle;
     width:auto; 
     display:inline-block !important; display:inline;
 }
@@ -84,18 +85,14 @@
 }
 @font-face {
     font-family: "yeZiGong";
-    src: url("./custom/YeZiGongChangYanShanTingXingKai-2.ttf") format('truetype'); 
+    src: url("./custom/YeZiGongChangYanShanTingXingKai-2.ttf"); 
   }
-@font-face {
-    font-family: "myYuan";
-    src: 
-}
 @font-face {
     font-family: 'myYuan';
     src: url('./custom/GEETYPE-ZhunYuanGBT-Flash.woff2') format('woff2'),
         url('./custom/GEETYPE-ZhunYuanGBT-Flash.woff') format('woff'),
-        url("./custom/jingziChunyuanjianfang.ttf") format('truetype');
-    font-weight: normal;
+        url("./custom/jingziChunyuanjianfang.ttf");
+    font-weight: normal;               
     font-style: normal;
     font-display: swap;
 }
