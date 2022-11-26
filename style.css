@@ -102,10 +102,17 @@
     padding: 2px;
     text-align: center;     
 }
+
 @font-face {
     font-family: "myYezi";
-    src: url("./custom/YeZiGongChangYanShanTingXingKai-2.ttf"); 
-  }
+    src: url('YEFONTYanShanTinXinKai-Regylar.woff') format('woff'),
+        url('YEFONTYanShanTinXinKai-Regylar.woff2') format('woff2'),        
+        url("./custom/YeZiGongChangYanShanTingXingKai-2.ttf"); 
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 @font-face {
     font-family: 'myYuan';
     src: url('./custom/GEETYPE-ZhunYuanGBT-Flash.woff2') format('woff2'),
