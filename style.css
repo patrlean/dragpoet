@@ -42,6 +42,9 @@
 .cardText {
     color: rgb(255, 239, 209);
 }
+.empty-top {
+    margin-top: 100px;
+}
 #outerBox{
     /* margin */
     margin: 6px;
