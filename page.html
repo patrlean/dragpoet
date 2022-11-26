@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="拼词页面">
-        <div id="开头文字">
+        <div id="开头文字" style="font-family:myYuan">
             动动小手从虚框中pick词语开始创作叭~
         </br>
         </div>
@@ -36,6 +36,7 @@
             <span id="ta" class="verse" onclick="myFunction(this)" style="background-color: white;">ta</span>
             <span id="小狗" class="verse" onclick="myFunction(this)" style="background-color: white;">小狗</span>
             <span id="姗姗来迟" class="verse" onclick="myFunction(this)" style="background-color: white;">姗姗来迟</span>
+            <span id="喜欢" class="verse" onclick="myFunction(this)" style="background-color: white;">喜欢</span>
         </div>
 
         <div class="按钮">
@@ -43,7 +44,7 @@
             <button type="button" class="按钮" onclick="someMagic()">一点灵感？</button>
         </div>
         <div hidden="hidden">
-            <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;"></canvas>
+            <canvas id="myCanvas" width="300" height="400" style="width:300;height:400;border:2px dashed #000000;"></canvas>
         </div>
     </div>
 
@@ -51,7 +52,7 @@
         <div id="输出图像单独图像">
             <img>
         </div>
-        <div class="text">
+        <div class="text" style="font-family:'机字经典准圆'">
             长按图片保存到手机
         </div>
         <div class="按钮">
@@ -63,9 +64,9 @@
     // 变量定义
     var wordSet = new Array();
     var img = new Image();
-    const WORDNON = ['量子力学'];
-    const WORDCONJ = [''];
-    const WORDSTATE = ['让我们在一起'];
+    const wordNON = ['量子力学','品学楼','他','她','我','ta','小狗','故事'];
+    const wordCONJ = ['是','在','有','能'];
+    const wordSTATE = ['让我们在一起'];
     // 函数
     // 加入新词
     function myFunction(obj) {
@@ -111,7 +112,7 @@
         // 设置背景文字
         ctx.font="14px Arial";
         ctx.fillStyle = "#ccc1b0";
-        ctx.textAlign = "center";
+        ctx.textAlign = "left";
         ctx.fillText(sentence,10,50);
 
         // 生成图像

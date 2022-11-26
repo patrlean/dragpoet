@@ -57,7 +57,8 @@
     text-align: center;
     margin-bottom: 2em;
     margin-top: 2em;
-    
+    /*  */
+    font-family: myYuan;
 }
 #text{
     background-color:'white';
@@ -69,7 +70,7 @@
     padding: 2px;
     /* content */
     font-size: 14px;
-    font-family:"Microsoft YaHei","微软雅黑","MicrosoftJhengHei",'华文细黑','STHeiti','MingLiu';
+    font-family: myYuan;
     text-align: center;
     width:auto; 
     display:inline-block !important; display:inline;
@@ -80,4 +81,12 @@
     margin-top: 2em;
     padding: 2px;
     text-align: center;     
+}
+@font-face {
+    font-family: "yeZiGong";
+    src: url("/custom/YeZiGongChangYanShanTingXingKai-2.ttf"); /* 省略其他格式 */
+  }
+@font-face {
+    font-family: "myYuan";
+    src: url("/custom/JiZiJingDianZhunYuanJianFan-Shan-2.ttf");
 }
