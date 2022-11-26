@@ -102,6 +102,8 @@
         sentence = wordSet.join("");
         // alert(sentence);
         // 创建canvas绘图元素
+        const myFont = new FontFace("myYezi", 'url(./custom/YeZiGongChangYanShanTingXingKai-2.ttf)')
+
         var canvas = document.getElementById('myCanvas');
         var ctx = canvas.getContext('2d');
         var ratio = window.devicePixelRatio || 1;
@@ -110,6 +112,9 @@
         canvas.width = canvas.width * ratio;
         canvas.height = canvas.height * ratio;
         ctx.scale(ratio,ratio);
+
+        // var canvas = document.getElementById('myCanvas');
+        
 
         // var w = canvas.width;
         // var h = canvas.height;
@@ -120,10 +125,12 @@
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // 设置背景文字
-        ctx.font="14px Arial";
-        ctx.fillStyle = "#ccc1b0";
+        ctx.font="14px myFont";
+        ctx.fillStyle = "#ddd7b9";
         ctx.textAlign = "left";
         ctx.fillText(sentence,30,50);
+
+        
 
         // 生成图像
         var dataImg = new Image()
