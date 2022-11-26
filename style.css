@@ -80,6 +80,22 @@
     display:inline-block !important; display:inline;
     
 }
+.btn {
+    /* 文字颜色 */
+    color: #000000; 
+    /* 清除背景色 */
+    background: transparent; 
+    /* 边框样式、颜色、宽度 */
+    border: 2px dashed #000000;
+    /* 给边框添加圆角 */
+    border-radius: 6px; 
+    /* 字母转大写 */
+    padding: 8px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
 .按钮{
     margin: 6px;
     margin-top: 2em;
