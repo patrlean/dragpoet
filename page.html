@@ -164,12 +164,27 @@
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // 设置背景文字
-        ctx.font="14px myFont";
+        ctx.font="20px myFont";
         ctx.fillStyle = "#ddd7b9";
         ctx.textAlign = "left";
-        ctx.fillText(sentence,30,80);
+        ctx.fillText(sentence,70,100);
+
+
+        let lineHeight = 660;
+        //开始一个新的绘制路径
+        ctx.beginPath();
+        //定义直线的起点坐标为(10,10)
+        ctx.moveTo(65, lineHeight);
+        //定义直线的终点坐标为(50,10)
+        ctx.lineTo(535, lineHeight);
+        //沿着坐标点顺序的路径绘制直线
+        ctx.strokeStyle = "#ddd7b9"; 
+        ctx.stroke();
+        //关闭当前的绘制路径
+        ctx.closePath();
+        // 绘制时间戳
         ctx.fillStyle = "#ddd7b9";
-        ctx.fillText(timeStamp,30,350);
+        ctx.fillText(timeStamp,70,700);
 
         // window.onload = function () {
         // var canvas = document.getElementById("myCanvas");
