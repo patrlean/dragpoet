@@ -59,6 +59,7 @@
             <span id="犹豫" class="verse" onclick="myFunction(this)" style="background-color: white;">犹豫</span>
             <span id="食堂" class="verse" onclick="myFunction(this)" style="background-color: white;">食堂</span>
             <span id="落日" class="verse" onclick="myFunction(this)" style="background-color: white;">落日</span>
+            <span id="的三" class="verse" onclick="myFunction(this)" style="background-color: white;">的</span>
             <span id="良夜" class="verse" onclick="myFunction(this)" style="background-color: white;">良夜</span>
             <span id="不过是" class="verse" onclick="myFunction(this)" style="background-color: white;">不过是</span>
             <span id="下次一定" class="verse" onclick="myFunction(this)" style="background-color: white;">下次一定</span>
@@ -85,7 +86,7 @@
             <!-- <button type="button" class="btn" onclick="someMagic()">一点灵感</button> -->
         </div>
         <div hidden="hidden">
-            <canvas id="myCanvas" width="300" height="400" style="border:2px dashed #000000;">&nbsp;</canvas>
+            <canvas id="myCanvas" width="600" height="800">&nbsp;</canvas>
         </div>
     </div>
 
@@ -108,6 +109,11 @@
     const wordNON = ['量子力学','品学楼','他','她','我','ta','小狗','故事'];
     const wordCONJ = ['是','在','有','能'];
     const wordSTATE = ['让我们在一起'];
+    var d = new Date();//获取系统当前时间
+    var year = d.getFullYear();
+    var month = d.getMonth() + 1;
+    var day = d.getDay();
+    var now = year + '/' + month + '/' + day;
     // 函数
     // 加入新词
     function myFunction(obj) {
@@ -132,6 +138,7 @@
         
         // 组合句子
         sentence = wordSet.join("");
+        timeStamp = '制作于' + now;
         // alert(sentence);
         // 创建canvas绘图元素
         const myFont = new FontFace("myYezi", 'url(./custom/YEFONTYanShanTinXinKai-Regylar.woff2)');
@@ -160,7 +167,9 @@
         ctx.font="14px myFont";
         ctx.fillStyle = "#ddd7b9";
         ctx.textAlign = "left";
-        ctx.fillText(sentence,30,50);
+        ctx.fillText(sentence,30,80);
+        ctx.fillStyle = "#ddd7b9";
+        ctx.fillText(timeStamp,30,350);
 
         // window.onload = function () {
         // var canvas = document.getElementById("myCanvas");
