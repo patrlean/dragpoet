@@ -9,30 +9,58 @@ var year = d.getFullYear();
 var month = d.getMonth() + 1;
 var day = d.getDay();
 var now = year + '/' + month + '/' + day;
+var elem;
 // 函数
 // 加入新词
 function myFunction(obj) {
+    
     elem = document.getElementById(obj.id);
+    // console.log(elem.id)
+
     newWord = elem.innerText;
     // console.log(elem.style.backgroundColor);
     if (elem.style.backgroundColor == "white"){
         elem.style.backgroundColor = "rgb(243, 236, 176)";
         wordSet.push(newWord);
     }
-    else{
+    else if( elem.style.backgroundColor == "rgb(243, 236, 176)") {
         elem.style.backgroundColor = "white";
         const index = wordSet.indexOf(newWord);
         if (index > -1) { // 移除找到的指定元素
         wordSet.splice(index, 1); // 移除元素
         }
     }
+    else {
+    console.log(wordSet)
+    // 判断是否为换行位置
+    
+        elem.style.background = "white";
+        const index = wordSet.indexOf(newWord);
+        if (index > -1) { // 移除找到的指定元素
+        wordSet.splice(index, 2); // 移除元素
+        }
+    }
+    console.log(wordSet)
 }
 
 // 生成句子
 function generateSentence() {
-    
-    // 组合句子
-    sentence = wordSet.join("");
+    var sentence = new Array()
+    // 为句子添加结束标签
+    if (wordSet[wordSet.length-1] != '1') {
+        wordSet.push('1');
+    }
+    // 搜索句子中“换行标志”的个数
+    var enterNum = wordSet.filter(function(res){
+		return res == '1';
+	});
+	// 组合句子
+    // 每行句子放在一个sentence小标中间
+    for (var i = 0; i < enterNum.length; i++) {
+        enterPosition = wordSet.indexOf('1');
+        sentence[i] = wordSet.splice(0,enterPosition).join("");
+        wordSet.splice(0,1);
+    }
     timeStamp = '制作于' + now;
     // alert(sentence);
     // 创建canvas绘图元素
@@ -48,7 +76,7 @@ function generateSentence() {
     ctx.scale(ratio,ratio);
 
     // var canvas = document.getElementById('myCanvas');
-    
+    // console.log(sentence[0])
 
     // var w = canvas.width;
     // var h = canvas.height;
@@ -58,12 +86,17 @@ function generateSentence() {
     ctx.fillStyle = '#1b1c20';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
+    var yTextStart = 90;
+    var stepHeight = 50;
     // 设置背景文字
-    ctx.font="22px myFont";
-    ctx.fillStyle = "#ddd7b9";
-    ctx.textAlign = "left";
-    ctx.fillText(sentence,70,100);
-
+    for (var i = 0; i < sentence.length; i++) {
+        ctx.font="22px myFont";
+        ctx.fillStyle = "#ddd7b9";
+        ctx.textAlign = "left";
+        ctx.fillText(sentence[i], 70, yTextStart + i*stepHeight);
+        console.log(i)
+        console.log(sentence[i])
+    }   
 
     let lineHeight = 660;
     //开始一个新的绘制路径
@@ -89,15 +122,17 @@ function generateSentence() {
     // ctx.fillText("文本内容文本内容", 0, 30);
     // <img src="https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png"/>
     // 插入二维码
-    var imgQR = new Image();
-    imgQR.src = "https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png";
-    //待图片加载完后，将其显示在canvas上
-    imgQR.onload = function(){
-            var ctx = canvas.getContext('2d');
-            ctx.drawImage(imgQR, 0, 0);
+    // var imgQR = new Image();
+    // imgQR.src = "https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png";
+    // //待图片加载完后，将其显示在canvas上
+    // imgQR.onload = function(){
+    //         var ctx = canvas.getContext('2d');
+    //         ctx.drawImage(imgQR, 0, 0);
+    // }
+    var imgQRone = document.getElementById("imgQRoneUESTCer");
+    imgQRone.onload = function() {
+        ctx.drawImage(imgQRone,500,400);
     }
-    
-
     // 生成图像
     var dataImg = new Image()
     dataImg.src = canvas.toDataURL('image/png',1.0);
@@ -136,4 +171,15 @@ function back2page() {
     var imgPage = document.getElementById("输出图像");
     imgPage.style.display = "none";
     javascript:location.reload();
+}
+// 换行
+function newlineSentence() {
+    if (wordSet[wordSet.length-1] != '1') {
+        wordSet.push('1');
+    }
+    var temp = document.getElementById(elem.id);
+    console.log(elem)
+    console.log(temp)
+    temp.style.background = "linear-gradient(to right, rgb(243, 236, 176) 70%, rgb(228, 207, 255) 30%)";
+    // rgb(243, 236, 176)
 }
