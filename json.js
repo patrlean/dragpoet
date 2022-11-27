@@ -21,16 +21,18 @@ function myFunction(obj) {
     
     elem = document.getElementById(obj.id);
     // 搜索句子中“换行标志”的个数
-    var enterNum = wordSet.filter(function(res){
-		return res == '1';
-	});
-    if ( enterNum.length > 8 ) {
-        alert('句子太多啦，他们说有点挤');
-        return;
-    }
+    
     newWord = elem.innerText;
     // console.log(elem.style.backgroundColor);
     if (elem.style.backgroundColor == "white"){
+        // 判断是否能增加词汇
+        var enterNum = wordSet.filter(function(res){
+            return res == '1';
+        });
+        if ( enterNum.length > 8 ) {
+            alert('句子太多啦，他们说有点挤');
+            return;
+        }
         elem.style.backgroundColor = "rgb(243, 236, 176)";
         wordSet.push(newWord);
     }
