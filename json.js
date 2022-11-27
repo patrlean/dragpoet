@@ -86,8 +86,8 @@ function generateSentence() {
     ctx.fillStyle = '#1b1c20';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    var yTextStart = 90;
-    var stepHeight = 50;
+    var yTextStart = 130;
+    var stepHeight = 40;
     // 设置背景文字
     for (var i = 0; i < sentence.length; i++) {
         ctx.font="22px myFont";
