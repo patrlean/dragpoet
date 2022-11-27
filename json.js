@@ -7,16 +7,27 @@ const wordSTATE = ['让我们在一起'];
 var d = new Date();//获取系统当前时间
 var year = d.getFullYear();
 var month = d.getMonth() + 1;
-var day = d.getDay();
+var day = d.getDate();
 var now = year + '/' + month + '/' + day;
 var elem;
+// 设置文字初始行高
+var yTextStart = 230;
+// 设置行间距
+var stepHeight = 45;
+
 // 函数
 // 加入新词
 function myFunction(obj) {
     
     elem = document.getElementById(obj.id);
-    // console.log(elem.id)
-
+    // 搜索句子中“换行标志”的个数
+    var enterNum = wordSet.filter(function(res){
+		return res == '1';
+	});
+    if ( enterNum.length > 8 ) {
+        alert('句子太多啦，他们说有点挤');
+        return;
+    }
     newWord = elem.innerText;
     // console.log(elem.style.backgroundColor);
     if (elem.style.backgroundColor == "white"){
@@ -45,6 +56,7 @@ function myFunction(obj) {
 
 // 生成句子
 function generateSentence() {
+    let welcomeWord = '诗词拼贴';
     var sentence = new Array()
     // 为句子添加结束标签
     if (wordSet[wordSet.length-1] != '1') {
@@ -84,18 +96,20 @@ function generateSentence() {
     // canvas.height = h;
     // 设置背景颜色
     ctx.fillStyle = '#1b1c20';
+    // ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    var yTextStart = 130;
-    var stepHeight = 40;
+    // 设置开头文字
+    ctx.font="36px myFont";
+    ctx.fillStyle = "#ddd7b9";
+    ctx.textAlign = "left";
+    ctx.fillText(welcomeWord, 70, 120);
     // 设置背景文字
     for (var i = 0; i < sentence.length; i++) {
         ctx.font="24px myFont";
         ctx.fillStyle = "#ddd7b9";
         ctx.textAlign = "left";
         ctx.fillText(sentence[i], 70, yTextStart + i*stepHeight);
-        // console.log(i)
-        // console.log(sentence[i])
     }   
 
     let lineHeight = 660;
@@ -116,34 +130,10 @@ function generateSentence() {
     ctx.fillText(timeStamp,70,700);
 
     // 插入 QR code
-    window.onload = () => {
-        let canvas = document.getElementById('myCanvas');
-        let ctx = canvas.getContext('2d');
-        let image = new Image();
-        image.src = './image/webQRcode.png';
-        image.onload = () => {
-            ctx.drawImage(image,400,300); // 最终渲染的位置
-       }
-    }
-
-    // window.onload = function () {
-    // var canvas = document.getElementById("myCanvas");
-    // var ctx = canvas.getContext("2d");
-    // ctx.font = "30px myYezi";
-    // ctx.fillText("文本内容文本内容", 0, 30);
-    // <img src="https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png"/>
-    // 插入二维码
-    // var imgQR = new Image();
-    // imgQR.src = "https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png";
-    // //待图片加载完后，将其显示在canvas上
-    // imgQR.onload = function(){
-    //         var ctx = canvas.getContext('2d');
-    //         ctx.drawImage(imgQR, 0, 0);
-    // }
-    var imgQRone = document.getElementById("imgQRoneUESTCer");
-    imgQRone.onload = function() {
-        ctx.drawImage(imgQRone,500,400);
-    }
+    
+    // //绘制图片  
+    
+    
     // 生成图像
     var dataImg = new Image()
     dataImg.src = canvas.toDataURL('image/png',1.0);
@@ -189,8 +179,6 @@ function newlineSentence() {
         wordSet.push('1');
     }
     var temp = document.getElementById(elem.id);
-    console.log(elem)
-    console.log(temp)
     temp.style.background = "linear-gradient(to right, rgb(243, 236, 176) 70%, rgb(228, 207, 255) 30%)";
     // rgb(243, 236, 176)
 }
