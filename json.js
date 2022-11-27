@@ -1,9 +1,6 @@
 // 变量定义
 var wordSet = new Array();
 var img = new Image();
-const wordNON = ['量子力学','品学楼','他','她','我','ta','小狗','故事'];
-const wordCONJ = ['是','在','有','能'];
-const wordSTATE = ['让我们在一起'];
 var d = new Date();//获取系统当前时间
 var year = d.getFullYear();
 var month = d.getMonth() + 1;
@@ -133,9 +130,14 @@ function generateSentence() {
 
     // 插入 QR code
     
+    var img = new Image();
     // //绘制图片  
-    
-    
+    img.src = './image/webQRcode.png';
+    img.onload = () => {
+        // Draw the image onto the context
+        ctx.drawImage(img, 0, 0,208, 208);
+    }
+    make_base()
     // 生成图像
     var dataImg = new Image()
     dataImg.src = canvas.toDataURL('image/png',1.0);
@@ -160,6 +162,16 @@ function generateSentence() {
 // 失眠是知道别人独睡时自己不该独醒， 是渴望进入梦境而又不能成眠 是对活着和还将继续活下去的恐惧， 是懵懵懂懂熬到天明。
 function someMagic() {
     
+}
+function make_base()
+{
+  base_image = new Image();
+  base_image.src = './image/webQRcode.png';
+  base_image.onload = function(){
+    var canvas = document.getElementById('myCanvas');
+    var cxt = canvas.getContext('2d');
+    cxt.drawImage(base_image, 0, 0);
+  }
 }
 // Converts canvas to an image
 function convertCanvasToImage(canvas) {
