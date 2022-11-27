@@ -90,12 +90,12 @@ function generateSentence() {
     var stepHeight = 40;
     // 设置背景文字
     for (var i = 0; i < sentence.length; i++) {
-        ctx.font="22px myFont";
+        ctx.font="24px myFont";
         ctx.fillStyle = "#ddd7b9";
         ctx.textAlign = "left";
         ctx.fillText(sentence[i], 70, yTextStart + i*stepHeight);
-        console.log(i)
-        console.log(sentence[i])
+        // console.log(i)
+        // console.log(sentence[i])
     }   
 
     let lineHeight = 660;
@@ -114,6 +114,17 @@ function generateSentence() {
     ctx.font="16px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.fillText(timeStamp,70,700);
+
+    // 插入 QR code
+    window.onload = () => {
+        let canvas = document.getElementById('myCanvas');
+        let ctx = canvas.getContext('2d');
+        let image = new Image();
+        image.src = './image/webQRcode.png';
+        image.onload = () => {
+            ctx.drawImage(image,400,300); // 最终渲染的位置
+       }
+    }
 
     // window.onload = function () {
     // var canvas = document.getElementById("myCanvas");
