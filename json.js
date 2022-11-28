@@ -84,6 +84,7 @@ function generateSentence() {
     canvas.width = canvas.width * ratio;
     canvas.height = canvas.height * ratio;
     ctx.scale(ratio,ratio);
+    
 
     var canvas = document.getElementById('myCanvas');
     console.log(sentence[0])
@@ -101,23 +102,23 @@ function generateSentence() {
     ctx.font="36px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.textAlign = "left";
-    ctx.fillText(welcomeWord, 70, 120);
+    ctx.fillText(welcomeWord, 70*ratio, 120*ratio);
 
     // 设置背景文字
     for (var i = 0; i < sentence.length; i++) {
         ctx.font="24px myFont";
         ctx.fillStyle = "#ddd7b9";
         ctx.textAlign = "left";
-        ctx.fillText(sentence[i], 70, yTextStart + i*stepHeight);
+        ctx.fillText(sentence[i], 70*ratio, yTextStart*ratio + i*stepHeight*ratio);
     }   
 
-    let lineHeight = 660;
+    let lineHeight = 660*ratio;
     //开始一个新的绘制路径
     ctx.beginPath();
     //定义直线的起点坐标为(10,10)
-    ctx.moveTo(65, lineHeight);
+    ctx.moveTo(65*ratio, lineHeight);
     //定义直线的终点坐标为(50,10)
-    ctx.lineTo(535, lineHeight);
+    ctx.lineTo(535*ratio, lineHeight);
     //沿着坐标点顺序的路径绘制直线
     ctx.strokeStyle = "#ddd7b9"; 
     ctx.stroke();
@@ -126,7 +127,7 @@ function generateSentence() {
     // 绘制时间戳
     ctx.font="16px myFont";
     ctx.fillStyle = "#ddd7b9";
-    ctx.fillText(timeStamp,70,700);
+    ctx.fillText(timeStamp,70*ratio,700*ratio);
 
 
     // 插入 QR code
@@ -135,12 +136,13 @@ function generateSentence() {
     img.src = './image/webQRcode.png';
     img.onload = () => {
         // Draw the image onto the context
-        ctx.drawImage(img, 435, 670 ,100, 100);
+        ctx.drawImage(img, 435*ratio, 670*ratio ,100*ratio , 100*ratio);
     }
    
     // 生成图像
     var dataImg = new Image()
     dataImg.src = canvas.toDataURL('image/png',1.0);
+
     // 设置display变换
     var page = document.getElementById("拼词页面");
     page.style.display = "none";
@@ -148,8 +150,9 @@ function generateSentence() {
     var imgPageSingle = document.getElementById("输出图像图像页面");
     imgPage.style.display = "block";
     // 固定图片大小
-    imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px" >';
+    imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
 }
+// width = "450px" height = "600px"
 
 // 一点灵感
 // 博尔赫斯
@@ -160,17 +163,6 @@ function generateSentence() {
 function someMagic() {
     
 }
-function make_base()
-{
-  base_image = new Image();
-  base_image.src = './image/webQRcode.png';
-  base_image.onload = function(){
-    var canvas = document.getElementById('myCanvas');
-    var cxt = canvas.getContext('2d');
-    cxt.drawImage(base_image, 0, 0, 100,100);
-  }
-}
-
 // 返回页面
 function back2page() {
     var page = document.getElementById("拼词页面");
