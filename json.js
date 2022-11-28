@@ -11,13 +11,6 @@ var elem;
 var yTextStart = 230;
 // 设置行间距
 var stepHeight = 45;
-// var canvas = document.getElementById('myCanvas');
-// var ctx = canvas.getContext('2d');
-// var img= new Image();
-//     img.src="./image/webQRcode.png";
-//     setInterval(function(){
-//     ctx.drawImage(img,100,100,200,300);
-//     },1000);
 // 函数
 // 加入新词
 function myFunction(obj) {
@@ -156,9 +149,6 @@ function generateSentence() {
     imgPage.style.display = "block";
     // 固定图片大小
     imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px" >';
-    // width = "300px" height = "400px"
-    // 自适应图片大小
-    // imgPageSingle.innerHTML = '<img style="text-align: center;width: '+ canvas.width + 'px;height:'+ canvas.height +'px" src="' + dataImg.src + '" alt="">';
 }
 
 // 一点灵感
@@ -180,12 +170,7 @@ function make_base()
     cxt.drawImage(base_image, 0, 0, 100,100);
   }
 }
-// Converts canvas to an image
-function convertCanvasToImage(canvas) {
-    var image = new Image();
-    image.src = canvas.toDataURL("image/png");
-    return image;
-}
+
 // 返回页面
 function back2page() {
     var page = document.getElementById("拼词页面");
@@ -201,5 +186,4 @@ function newlineSentence() {
     }
     var temp = document.getElementById(elem.id);
     temp.style.background = "linear-gradient(to right, rgb(243, 236, 176) 70%, rgb(228, 207, 255) 30%)";
-    // rgb(243, 236, 176)
 }
