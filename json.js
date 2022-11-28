@@ -11,7 +11,13 @@ var elem;
 var yTextStart = 230;
 // 设置行间距
 var stepHeight = 45;
-
+// var canvas = document.getElementById('myCanvas');
+// var ctx = canvas.getContext('2d');
+// var img= new Image();
+//     img.src="./image/webQRcode.png";
+//     setInterval(function(){
+//     ctx.drawImage(img,100,100,200,300);
+//     },1000);
 // 函数
 // 加入新词
 function myFunction(obj) {
@@ -72,7 +78,7 @@ function generateSentence() {
         sentence[i] = wordSet.splice(0,enterPosition).join("");
         wordSet.splice(0,1);
     }
-    timeStamp = '制作于' + now;
+    timeStamp = '创作于' + now;
     // alert(sentence);
     // 创建canvas绘图元素
     const myFont = new FontFace("myYezi", 'url(./custom/YEFONTYanShanTinXinKai-Regylar.woff2)');
@@ -129,15 +135,41 @@ function generateSentence() {
     ctx.fillText(timeStamp,70,700);
 
     // 插入 QR code
+    // let img = new Image();
+    // img.src = "./image/webQRcode.png";
+
+    // // 确认 image 对象加载完毕
+    // img.onload = function () {
+    // // 创建图案
+    // let ptrn = ctx.createPattern(img, "no-repeat");
+    // ctx.fillStyle = ptrn;
+    // ctx.fillRect(0, 0, 150, 150);
+    // };
+
+    // var img = new Image();
+    // // //绘制图片  
+    // img.src = './image/webQRcode.png';
+    // img.onload = () => {
+    //     // Draw the image onto the context
+    //     ctx.drawImage(img, 0, 0,100, 100);
+    // }
     
-    var img = new Image();
-    // //绘制图片  
-    img.src = './image/webQRcode.png';
-    img.onload = () => {
-        // Draw the image onto the context
-        ctx.drawImage(img, 0, 0,208, 208);
-    }
-    make_base()
+    
+    imgPro = new Promise((resolve,reject) => {
+        var img= new Image();
+        img.src="./image/webQRcode.png";
+        img.onload = function (){
+            resolve(img)
+        }
+        img.onerror = function  (e){
+            reject(e);
+        }
+    })
+    imgPro.then(img => {
+        ctx.drawImage(img,100,100,200,300);
+    });
+
+
     // 生成图像
     var dataImg = new Image()
     dataImg.src = canvas.toDataURL('image/png',1.0);
@@ -170,7 +202,7 @@ function make_base()
   base_image.onload = function(){
     var canvas = document.getElementById('myCanvas');
     var cxt = canvas.getContext('2d');
-    cxt.drawImage(base_image, 0, 0);
+    cxt.drawImage(base_image, 0, 0, 100,100);
   }
 }
 // Converts canvas to an image
