@@ -92,13 +92,13 @@ function generateSentence() {
     canvas.height = canvas.height * ratio;
     ctx.scale(ratio,ratio);
 
-    // var canvas = document.getElementById('myCanvas');
-    // console.log(sentence[0])
+    var canvas = document.getElementById('myCanvas');
+    console.log(sentence[0])
 
-    // var w = canvas.width;
-    // var h = canvas.height;
-    // canvas.width = w;
-    // canvas.height = h;
+    var w = canvas.width;
+    var h = canvas.height;
+    canvas.width = w;
+    canvas.height = h;
     // 设置背景颜色
     ctx.fillStyle = '#1b1c20';
     // ctx.fillStyle = 'white';
@@ -135,39 +135,24 @@ function generateSentence() {
     ctx.fillStyle = "#ddd7b9";
     ctx.fillText(timeStamp,70,700);
 
+
     // 插入 QR code
-    
     var img = new Image();
     // //绘制图片  
     img.src = './image/webQRcode.png';
     img.onload = () => {
         // Draw the image onto the context
-        ctx.drawImage(img, 0, 0,100, 100);
+        ctx.drawImage(img, 435, 670 ,100, 100);
     }
-    
-    imgPro = new Promise((resolve,reject) => {
-        var img= new Image();
-        img.src="./image/webQRcode.png";
-        img.onload = function (){
-            resolve(img)
-        }
-        img.onerror = function  (e){
-            reject(e);
-        }
-    })
-    imgPro.then(img => {
-        ctx.drawImage(img,100,100,200,300);
-    });
-
-
+   
     // 生成图像
     var dataImg = new Image()
     dataImg.src = canvas.toDataURL('image/png',1.0);
     // 设置display变换
     var page = document.getElementById("拼词页面");
     page.style.display = "none";
-    var imgPage = document.getElementById("输出图像");
-    var imgPageSingle = document.getElementById("输出图像单独图像");
+    var imgPage = document.getElementById("输出图像页面");
+    var imgPageSingle = document.getElementById("输出图像图像页面");
     imgPage.style.display = "block";
     // 固定图片大小
     imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px" >';
@@ -205,7 +190,7 @@ function convertCanvasToImage(canvas) {
 function back2page() {
     var page = document.getElementById("拼词页面");
     page.style.display = "block";
-    var imgPage = document.getElementById("输出图像");
+    var imgPage = document.getElementById("输出图像页面");
     imgPage.style.display = "none";
     javascript:location.reload();
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="refresh" content="3"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拼贴诗词</title>
+    <script type="text/javascript" src="json.js"></script>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="按钮">
+        <button type="button" class="btn" onclick="generateSentence()">生成句子</button>
+        <button type="button" class="btn" onclick="newlineSentence()">点我换行</button>
+        <!-- <button type="button" class="btn" onclick="someMagic()">一点灵感</button> -->
+    </div>
+    <div>
+        <canvas id="myCanvas" width="600" height="800">&nbsp;你的浏览器不支持canvas</canvas>
+    </div>
+    <div hidden="hidden">
+        <img id="imgQRydcd" src="./image/webQRcode.png"/>
+    </div>
+</body>
+</html>
