@@ -104,6 +104,11 @@ function generateSentence() {
     ctx.textAlign = "left";
     ctx.fillText(welcomeWord, 70*ratio, 120*ratio);
 
+    // 设置开头文字
+    ctx.font="36px myFont";
+    ctx.fillStyle = "#ddd7b9";
+    ctx.textAlign = "left";
+    ctx.fillText(welcomeWord, 70, 120);
     // 设置背景文字
     for (var i = 0; i < sentence.length; i++) {
         ctx.font="24px myFont";
