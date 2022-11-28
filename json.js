@@ -109,6 +109,7 @@ function generateSentence() {
     ctx.fillStyle = "#ddd7b9";
     ctx.textAlign = "left";
     ctx.fillText(welcomeWord, 70, 120);
+
     // 设置背景文字
     for (var i = 0; i < sentence.length; i++) {
         ctx.font="24px myFont";
@@ -135,25 +136,14 @@ function generateSentence() {
     ctx.fillText(timeStamp,70,700);
 
     // 插入 QR code
-    // let img = new Image();
-    // img.src = "./image/webQRcode.png";
-
-    // // 确认 image 对象加载完毕
-    // img.onload = function () {
-    // // 创建图案
-    // let ptrn = ctx.createPattern(img, "no-repeat");
-    // ctx.fillStyle = ptrn;
-    // ctx.fillRect(0, 0, 150, 150);
-    // };
-
-    // var img = new Image();
-    // // //绘制图片  
-    // img.src = './image/webQRcode.png';
-    // img.onload = () => {
-    //     // Draw the image onto the context
-    //     ctx.drawImage(img, 0, 0,100, 100);
-    // }
     
+    var img = new Image();
+    // //绘制图片  
+    img.src = './image/webQRcode.png';
+    img.onload = () => {
+        // Draw the image onto the context
+        ctx.drawImage(img, 0, 0,100, 100);
+    }
     
     imgPro = new Promise((resolve,reject) => {
         var img= new Image();
