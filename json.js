@@ -135,6 +135,7 @@ function generateSentence() {
     // 插入 QR code
     var img = new Image();
     // //绘制图片  
+    // img.src = './image/webQRcode.png';
     img.src = 'https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png';
     img.crossOrigin="anonymous";
     img.onload = () => {
@@ -143,23 +144,20 @@ function generateSentence() {
         // var imgTag = canvas.toDataURL('image/png',1.0);
         
         // document.getElementById("输出图像图像页面").src = imgTag;
-    
-    
-
-    // 生成图像
-    var dataImg = new Image();
-    
-    dataImg.src = canvas.toDataURL('image/png',1.0);
+        // 生成图像
+        var dataImg = new Image();
+        dataImg.crossOrigin = 'anonymous';
+        dataImg.src = canvas.toDataURL('image/png',1.0);
+        // 固定图片大小
+        imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
+    }
     // 设置display变换
     var page = document.getElementById("拼词页面");
     page.style.display = "none";
     var imgPage = document.getElementById("输出图像页面");
     var imgPageSingle = document.getElementById("输出图像图像页面");
     imgPage.style.display = "block";
-    // 固定图片大小
-    imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
-
-    }
+    
 }
 // width = "450px" height = "600px"
 
