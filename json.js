@@ -132,6 +132,19 @@ function generateSentence() {
     ctx.fillText(timeStamp,70*ratio,670*ratio);
     console.log(ratio);
 
+    // 扫码关注一点成电 扫码开始创作
+    let footHeight = 770;
+    ctx.font="26px myFont";
+    ctx.fillStyle = "#ddd7b9";
+    ctx.fillText('扫码关注一点成电', 340*ratio,footHeight*ratio);
+    console.log(ratio);
+
+    ctx.font="26px myFont";
+    ctx.fillStyle = "#ddd7b9";
+    ctx.fillText('扫码开始创作', 454*ratio,footHeight*ratio);
+    console.log(ratio);
+    
+
     // 插入 QR code
     var img = new Image();
     // //绘制图片  
