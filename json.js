@@ -42,7 +42,6 @@ function myFunction(obj) {
     else {
     console.log(wordSet)
     // 判断是否为换行位置
-    
         elem.style.background = "white";
         const index = wordSet.indexOf(newWord);
         if (index > -1) { // 移除找到的指定元素
@@ -73,8 +72,8 @@ function generateSentence() {
     }
     timeStamp = '创作于' + now;
     // alert(sentence);
-    // 创建canvas绘图元素
-    const myFont = new FontFace("myYezi", 'url(./custom/YEFONTYanShanTinXinKai-Regylar.woff2)');
+    // 创建canvas绘图元素custom\
+    const myFont = new FontFace("myYezi", 'url(./custom/YeZiGongChangYanShanTingXingKai-2.ttf)');
 
     var canvas = document.getElementById('myCanvas');
     var ctx = canvas.getContext('2d');
@@ -106,14 +105,16 @@ function generateSentence() {
 
     
     // 设置背景文字
-    for (var i = 0; i < sentence.length; i++) {
-        ctx.font="56px myFont";
-        ctx.fillStyle = "#ddd7b9";
-        ctx.textAlign = "left";
-        ctx.fillText(sentence[i], 70*ratio, yTextStart*ratio + i*stepHeight*ratio);
-    }   
+    // window.onload = () => {
+        for (var i = 0; i < sentence.length; i++) {
+            ctx.font="56px myFont";
+            ctx.fillStyle = "#ddd7b9";
+            ctx.textAlign = "left";
+            ctx.fillText(sentence[i], 70*ratio, yTextStart*ratio + i*stepHeight*ratio);
+        }   
+    // }
 
-    let lineHeight = 660*ratio;
+    let lineHeight = 640*ratio;
     //开始一个新的绘制路径
     ctx.beginPath();
     //定义直线的起点坐标为(10,10)
@@ -134,16 +135,21 @@ function generateSentence() {
     // 插入 QR code
     var img = new Image();
     // //绘制图片  
-    img.src = './image/webQRcode.png';
+    img.src = 'https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png';
+    img.crossOrigin="anonymous";
     img.onload = () => {
         // Draw the image onto the context
         ctx.drawImage(img, 435*ratio, 670*ratio ,100*ratio , 100*ratio);
-    }
-   
-    // 生成图像
-    var dataImg = new Image()
-    dataImg.src = canvas.toDataURL('image/png',1.0);
+        // var imgTag = canvas.toDataURL('image/png',1.0);
+        
+        // document.getElementById("输出图像图像页面").src = imgTag;
+    
+    
 
+    // 生成图像
+    var dataImg = new Image();
+    dataImg.crossOrigin="anonymous";
+    dataImg.src = canvas.toDataURL('image/png',1.0);
     // 设置display变换
     var page = document.getElementById("拼词页面");
     page.style.display = "none";
@@ -152,6 +158,8 @@ function generateSentence() {
     imgPage.style.display = "block";
     // 固定图片大小
     imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
+
+    }
 }
 // width = "450px" height = "600px"
 
