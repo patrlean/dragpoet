@@ -129,8 +129,8 @@ function generateSentence() {
     // 绘制时间戳
     ctx.font="48px myFont";
     ctx.fillStyle = "#ddd7b9";
-    ctx.fillText(timeStamp,70*ratio,700*ratio);
-
+    ctx.fillText(timeStamp,70*ratio,670*ratio);
+    console.log(ratio);
 
     // 插入 QR code
     var img = new Image();
@@ -140,7 +140,7 @@ function generateSentence() {
     img.onload = () => {
         alert('麻烦确定我一下，好嘛~');
         // Draw the image onto the context
-        ctx.drawImage(img, 435*ratio, 670*ratio ,100*ratio , 100*ratio);
+        ctx.drawImage(img, 333*ratio, 650*ratio ,202*ratio , 102*ratio);
         // var imgTag = canvas.toDataURL('image/png',1.0);
         // document.getElementById("输出图像图像页面").src = imgTag;
         // 生成图像
@@ -150,6 +150,7 @@ function generateSentence() {
         imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
     
     }
+    img.src = 'https://raw.githubusercontent.com/patrlean/images/main/yidianQRwebQR.png';
     // 设置display变换
     var page = document.getElementById("拼词页面");
     page.style.display = "none";
@@ -157,7 +158,6 @@ function generateSentence() {
     var imgPageSingle = document.getElementById("输出图像图像页面");
     imgPage.style.display = "block";
     
-    img.src = 'https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png';
 }
 // width = "450px" height = "600px"
 
