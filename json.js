@@ -70,7 +70,7 @@ function generateSentence() {
         sentence[i] = wordSet.splice(0,enterPosition).join("");
         wordSet.splice(0,1);
     }
-    timeStamp = '创作于' + now;
+    timeStamp = '创作于 ' + now;
     // alert(sentence);
     // 创建canvas绘图元素custom\
     const myFont = new FontFace("myYezi", 'url(./custom/YeZiGongChangYanShanTingXingKai-2.ttf)');
@@ -139,6 +139,7 @@ function generateSentence() {
     img.src = 'https://raw.githubusercontent.com/patrlean/images/main/webQRcode.png';
     img.crossOrigin="anonymous";
     img.onload = () => {
+        alert('1');
         // Draw the image onto the context
         ctx.drawImage(img, 435*ratio, 670*ratio ,100*ratio , 100*ratio);
         // var imgTag = canvas.toDataURL('image/png',1.0);
@@ -148,7 +149,7 @@ function generateSentence() {
         var dataImg = new Image();
         
         dataImg.src = canvas.toDataURL('image/png',1.0);
-        dataImg.crossOrigin = 'anonymous';
+        
         // 固定图片大小
         imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
     }
