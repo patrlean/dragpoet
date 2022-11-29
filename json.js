@@ -138,7 +138,7 @@ function generateSentence() {
     // img.src = './image/webQRcode.png';
     img.crossOrigin="anonymous";
     img.onload = () => {
-        
+        alert('是否确认生成句子');
         // Draw the image onto the context
         ctx.drawImage(img, 435*ratio, 670*ratio ,100*ratio , 100*ratio);
         // var imgTag = canvas.toDataURL('image/png',1.0);
