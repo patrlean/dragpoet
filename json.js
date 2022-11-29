@@ -146,8 +146,9 @@ function generateSentence() {
         // document.getElementById("输出图像图像页面").src = imgTag;
         // 生成图像
         var dataImg = new Image();
-        dataImg.crossOrigin = 'anonymous';
+        
         dataImg.src = canvas.toDataURL('image/png',1.0);
+        dataImg.crossOrigin = 'anonymous';
         // 固定图片大小
         imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
     }
