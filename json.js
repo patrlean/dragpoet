@@ -40,7 +40,6 @@ function myFunction(obj) {
         }
     }
     else {
-    console.log(wordSet)
     // 判断是否为换行位置
         elem.style.background = "white";
         const index = wordSet.indexOf(newWord);
@@ -48,7 +47,6 @@ function myFunction(obj) {
         wordSet.splice(index, 2); // 移除元素
         }
     }
-    console.log(wordSet)
 }
 
 // 生成句子
@@ -59,6 +57,8 @@ function generateSentence() {
     if (wordSet[wordSet.length-1] != '1') {
         wordSet.push('1');
     }
+    wordNumWithOne = wordSet.join("").length;
+    
     // 搜索句子中“换行标志”的个数
     var enterNum = wordSet.filter(function(res){
 		return res == '1';
@@ -71,7 +71,6 @@ function generateSentence() {
         wordSet.splice(0,1);
     }
     timeStamp = '创作于 ' + now;
-    // alert(sentence);
     // 创建canvas绘图元素custom\
     const myFont = new FontFace("myYezi", 'url(./custom/YeZiGongChangYanShanTingXingKai-2.ttf)');
 
@@ -86,7 +85,7 @@ function generateSentence() {
     
 
     var canvas = document.getElementById('myCanvas');
-    console.log(sentence[0])
+    
 
     var w = canvas.width;
     var h = canvas.height;
@@ -98,7 +97,7 @@ function generateSentence() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // 设置开头文字
-    ctx.font="78px myFont";
+    ctx.font="90px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.textAlign = "left";
     ctx.fillText(welcomeWord, 70*ratio, 120*ratio);
@@ -106,12 +105,12 @@ function generateSentence() {
     
     // 设置背景文字
     // window.onload = () => {
-        for (var i = 0; i < sentence.length; i++) {
-            ctx.font="56px myFont";
-            ctx.fillStyle = "#ddd7b9";
-            ctx.textAlign = "left";
-            ctx.fillText(sentence[i], 70*ratio, yTextStart*ratio + i*stepHeight*ratio);
-        }   
+    for (var i = 0; i < sentence.length; i++) {
+        ctx.font="56px myFont";
+        ctx.fillStyle = "#ddd7b9";
+        ctx.textAlign = "left";
+        ctx.fillText(sentence[i], 70*ratio, yTextStart*ratio + i*stepHeight*ratio);
+    }   
     // }
 
     let lineHeight = 640*ratio;
@@ -129,20 +128,23 @@ function generateSentence() {
     // 绘制时间戳
     ctx.font="48px myFont";
     ctx.fillStyle = "#ddd7b9";
-    ctx.fillText(timeStamp,70*ratio,670*ratio);
+    ctx.fillText(timeStamp,70*ratio,700*ratio);
     console.log(ratio);
+    // 累计创作 ？？ 行 ？？字
+    wordsNum = wordNumWithOne - sentence.length;
+    ctx.font="48px myFont";
+    ctx.fillStyle = "#ddd7b9";
+    ctx.fillText('累计 '+ wordsNum +' 字' + ', 共 ' + sentence.length + ' 行',70*ratio,670*ratio);
 
     // 扫码关注一点成电 扫码开始创作
     let footHeight = 770;
     ctx.font="26px myFont";
     ctx.fillStyle = "#ddd7b9";
-    ctx.fillText('扫码关注一点成电', 340*ratio,footHeight*ratio);
-    console.log(ratio);
+    ctx.fillText('扫码关注一点成电', 335*ratio,footHeight*ratio);
 
     ctx.font="26px myFont";
     ctx.fillStyle = "#ddd7b9";
-    ctx.fillText('扫码开始创作', 454*ratio,footHeight*ratio);
-    console.log(ratio);
+    ctx.fillText('扫码开始创作', 452*ratio,footHeight*ratio);
     
 
     // 插入 QR code
@@ -163,7 +165,7 @@ function generateSentence() {
         imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
     
     }
-    img.src = 'https://raw.githubusercontent.com/patrlean/images/main/yidianQRwebQR.png';
+    img.src = 'https://raw.githubusercontent.com/patrlean/images/main/yidianQRwebQRspace.png';
     // 设置display变换
     var page = document.getElementById("拼词页面");
     page.style.display = "none";
