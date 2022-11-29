@@ -8,20 +8,29 @@ var day = d.getDate();
 var now = year + '/' + month + '/' + day;
 var elem;
 // 设置文字初始行高
-var yTextStart = 230;
+const yTextStart = 230;
 // 设置行间距
-var stepHeight = 45;
+const stepHeight = 45;
+// 设置字体大小
+var titleFontsize = 40;
+var textFontsize = 25;
+var textSmallFontsize = 20;
+var footFontsize = 12;
+wordSet.push('1');
+console.log(wordSet)
 // 函数
 // 加入新词
 function myFunction(obj) {
-    
+    var lastWord;
+    var wordSetCopy = new Array();
+    wordSetCopy = wordSet.slice(0);
+    var wordSetThisLine = new Array();
     elem = document.getElementById(obj.id);
     // 搜索句子中“换行标志”的个数
-    
     newWord = elem.innerText;
     // console.log(elem.style.backgroundColor);
     if (elem.style.backgroundColor == "white"){
-        // 判断是否能增加词汇
+        // 判断是否能增加词汇行数
         var enterNum = wordSet.filter(function(res){
             return res == '1';
         });
@@ -29,6 +38,22 @@ function myFunction(obj) {
             alert('句子太多啦，他们说有点挤');
             return;
         }
+        console.log(wordSet)
+        // 判断是否能增加词汇个数
+        wordSetCopy.push(newWord);
+        while ((lastWord = wordSetCopy.pop()) != '1') {
+            wordSetThisLine.push(lastWord);
+        }
+        
+        var lineLenght = wordSetThisLine.join('').length;
+        console.log(lineLenght)
+        if (lineLenght > 18) {
+            alert('这行字数太多辣，点击换行。对，就是下面那个变红的按钮');
+            var btnEnter = document.getElementById('点我换行');
+            btnEnter.style.backgroundColor = 'rgb(244, 171, 142)';
+            return;
+        }
+        // 增加词汇
         elem.style.backgroundColor = "rgb(243, 236, 176)";
         wordSet.push(newWord);
     }
@@ -47,12 +72,13 @@ function myFunction(obj) {
         wordSet.splice(index, 2); // 移除元素
         }
     }
+    console.log(wordSet)
 }
 
 // 生成句子
 function generateSentence() {
     let welcomeWord = '诗词拼贴';
-    var sentence = new Array()
+    var sentence = new Array();
     // 为句子添加结束标签
     if (wordSet[wordSet.length-1] != '1') {
         wordSet.push('1');
@@ -97,7 +123,8 @@ function generateSentence() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // 设置开头文字
-    ctx.font="90px myFont";
+    titleFontsize = titleFontsize*ratio;
+    ctx.font= titleFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.textAlign = "left";
     ctx.fillText(welcomeWord, 70*ratio, 120*ratio);
@@ -105,8 +132,11 @@ function generateSentence() {
     
     // 设置背景文字
     // window.onload = () => {
+    textFontsize =  textFontsize*ratio;
     for (var i = 0; i < sentence.length; i++) {
-        ctx.font="56px myFont";
+        console.log(textFontsize)
+        
+        ctx.font= textFontsize + "px myFont";
         ctx.fillStyle = "#ddd7b9";
         ctx.textAlign = "left";
         ctx.fillText(sentence[i], 70*ratio, yTextStart*ratio + i*stepHeight*ratio);
@@ -126,23 +156,26 @@ function generateSentence() {
     //关闭当前的绘制路径
     ctx.closePath();
     // 绘制时间戳
-    ctx.font="48px myFont";
+    textSmallFontsize = textSmallFontsize * ratio;
+    ctx.font= textSmallFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.fillText(timeStamp,70*ratio,700*ratio);
     console.log(ratio);
     // 累计创作 ？？ 行 ？？字
     wordsNum = wordNumWithOne - sentence.length;
-    ctx.font="48px myFont";
+    ctx.font= textSmallFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
-    ctx.fillText('累计 '+ wordsNum +' 字' + ', 共 ' + sentence.length + ' 行',70*ratio,670*ratio);
+    lineNum = sentence.length - 1;
+    ctx.fillText('累计 '+ wordsNum +' 字' + ', 共 ' + lineNum + ' 行',70*ratio,670*ratio);
 
     // 扫码关注一点成电 扫码开始创作
     let footHeight = 770;
-    ctx.font="26px myFont";
+    footFontsize = footFontsize * ratio;
+    ctx.font=footFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.fillText('扫码关注一点成电', 335*ratio,footHeight*ratio);
 
-    ctx.font="26px myFont";
+    ctx.font= footFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.fillText('扫码开始创作', 452*ratio,footHeight*ratio);
     
