@@ -148,7 +148,7 @@ function generateSentence() {
 
     // 生成图像
     var dataImg = new Image();
-    dataImg.crossOrigin="anonymous";
+    
     dataImg.src = canvas.toDataURL('image/png',1.0);
     // 设置display变换
     var page = document.getElementById("拼词页面");
