@@ -17,7 +17,8 @@ var textFontsize = 25;
 var textSmallFontsize = 20;
 var footFontsize = 12;
 wordSet.push('1');
-console.log(wordSet)
+var test = document.getElementById('文字卡片');
+console.log(test);
 // 函数
 // 加入新词
 function myFunction(obj) {
@@ -28,7 +29,6 @@ function myFunction(obj) {
     elem = document.getElementById(obj.id);
     // 搜索句子中“换行标志”的个数
     newWord = elem.innerText;
-    // console.log(elem.style.backgroundColor);
     if (elem.style.backgroundColor == "white"){
         // 判断是否能增加词汇行数
         var enterNum = wordSet.filter(function(res){
@@ -38,7 +38,6 @@ function myFunction(obj) {
             alert('句子太多啦，他们说有点挤');
             return;
         }
-        console.log(wordSet)
         // 判断是否能增加词汇个数
         wordSetCopy.push(newWord);
         while ((lastWord = wordSetCopy.pop()) != '1') {
@@ -46,9 +45,8 @@ function myFunction(obj) {
         }
         
         var lineLenght = wordSetThisLine.join('').length;
-        console.log(lineLenght)
         if (lineLenght > 18) {
-            alert('这行字数太多辣，点击换行。对，就是下面那个变红的按钮');
+            alert('这行字数太多辣，点击换行。对，就是那个变红的按钮');
             var btnEnter = document.getElementById('点我换行');
             btnEnter.style.backgroundColor = 'rgb(244, 171, 142)';
             return;
@@ -72,7 +70,6 @@ function myFunction(obj) {
         wordSet.splice(index, 2); // 移除元素
         }
     }
-    console.log(wordSet)
 }
 
 // 生成句子
@@ -133,9 +130,7 @@ function generateSentence() {
     // 设置背景文字
     // window.onload = () => {
     textFontsize =  textFontsize*ratio;
-    for (var i = 0; i < sentence.length; i++) {
-        console.log(textFontsize)
-        
+    for (var i = 0; i < sentence.length; i++) {   
         ctx.font= textFontsize + "px myFont";
         ctx.fillStyle = "#ddd7b9";
         ctx.textAlign = "left";
@@ -160,7 +155,6 @@ function generateSentence() {
     ctx.font= textSmallFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.fillText(timeStamp,70*ratio,700*ratio);
-    console.log(ratio);
     // 累计创作 ？？ 行 ？？字
     wordsNum = wordNumWithOne - sentence.length;
     ctx.font= textSmallFontsize + "px myFont";
@@ -196,7 +190,7 @@ function generateSentence() {
         dataImg.src = canvas.toDataURL('image/png',1.0);
         // 固定图片大小
         imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
-    
+        
     }
     img.src = 'https://raw.githubusercontent.com/patrlean/images/main/yidianQRwebQRspace.png';
     // img.src = 'https://img-blog.csdnimg.cn/a00bbd3cc2f74cc0b1f77e5e4ec67131.png';
@@ -205,8 +199,9 @@ function generateSentence() {
     page.style.display = "none";
     var imgPage = document.getElementById("输出图像页面");
     var imgPageSingle = document.getElementById("输出图像图像页面");
-    imgPage.style.display = "block";
     
+    
+    imgPage.style.display = "block";
 }
 // width = "450px" height = "600px"
 
