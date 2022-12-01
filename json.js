@@ -7,6 +7,7 @@ var month = d.getMonth() + 1;
 var day = d.getDate();
 var now = year + '/' + month + '/' + day;
 var elem;
+var loadingNum = 0;
 // 设置文字初始行高
 const yTextStart = 230;
 // 设置行间距
@@ -175,14 +176,17 @@ function generateSentence() {
 
     // 绘制加载中页面
     // 开始加载
-    loadingView(true);
+    var loadingInterval = setInterval( loadingCount(), 1000);
     // 插入 QR code
     var img = new Image();
+    
     // //绘制图片  
     // img.src = './image/webQRcode.png';
     img.crossOrigin="anonymous";
     img.onload = () => {
-        loadingView(false); // 结束加载
+        clearInterval(loadingInterval); // 结束加载
+        let loadingID = document.getElementById('加载中页面');
+        loadingID.innerHTML = '';
         // loadPage.innerHTML = '';
         // Draw the image onto the context
         ctx.drawImage(img, 333*ratio, 650*ratio ,202*ratio , 102*ratio);
@@ -231,12 +235,18 @@ function newlineSentence() {
     temp.style.background = "linear-gradient(to right, rgb(243, 236, 176) 70%, rgb(228, 207, 255) 30%)";
 }
 
-function loadingView(loadingBool) {
-    let loadPage = document.getElementById('加载中页面');
-    if (loadingBool == true)  {
-        loadPage.innerHTML = '正在加载中';
+function loadingCount() {
+    let loadingID = document.getElementById('加载中页面');
+    if ((loadingNum % 3) == 0) {
+        loadingID.innerHTML = '加载中.';
+        
     }
-    else {
-        loadPage.innerHTML = '加载完毕';
+    else if((loadingNum % 3) == 1) {
+        loadingID.innerHTML = '加载中..';
     }
+    else if((loadingNum % 3) == 2) {
+        loadingID.innerHTML = '加载中...';
+    }
+    console.log(loadingNum);
+    loadingNum = loadingNum + 1;
 }
