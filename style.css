@@ -64,10 +64,10 @@
     /*  */
     font-family:myYuan;
 }
-#text{
+.text{
     background-color:'white';
     /* margin */
-    margin-top: 40px;
+    margin-top: 2em;
     /* border */
     
     /* padding */
@@ -79,6 +79,10 @@
     width:auto; 
     display:inline-block !important; display:inline;
     
+}
+.loadingText {
+    transition : display none 5s;
+    text-align: center;
 }
 .btn {
     /* 文字颜色 */

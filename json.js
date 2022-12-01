@@ -172,15 +172,18 @@ function generateSentence() {
     ctx.font= footFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.fillText('扫码开始创作', 452*ratio,footHeight*ratio);
-    
 
+    // 绘制加载中页面
+    // 开始加载
+    loadingView(true);
     // 插入 QR code
     var img = new Image();
     // //绘制图片  
     // img.src = './image/webQRcode.png';
     img.crossOrigin="anonymous";
     img.onload = () => {
-        alert('麻烦确定我一下，好嘛~');
+        loadingView(false); // 结束加载
+        // loadPage.innerHTML = '';
         // Draw the image onto the context
         ctx.drawImage(img, 333*ratio, 650*ratio ,202*ratio , 102*ratio);
         // var imgTag = canvas.toDataURL('image/png',1.0);
@@ -190,7 +193,6 @@ function generateSentence() {
         dataImg.src = canvas.toDataURL('image/png',1.0);
         // 固定图片大小
         imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
-        
     }
     img.src = 'https://raw.githubusercontent.com/patrlean/images/main/yidianQRwebQRspace.png';
     // img.src = 'https://img-blog.csdnimg.cn/a00bbd3cc2f74cc0b1f77e5e4ec67131.png';
@@ -199,8 +201,6 @@ function generateSentence() {
     page.style.display = "none";
     var imgPage = document.getElementById("输出图像页面");
     var imgPageSingle = document.getElementById("输出图像图像页面");
-    
-    
     imgPage.style.display = "block";
 }
 // width = "450px" height = "600px"
@@ -229,4 +229,14 @@ function newlineSentence() {
     }
     var temp = document.getElementById(elem.id);
     temp.style.background = "linear-gradient(to right, rgb(243, 236, 176) 70%, rgb(228, 207, 255) 30%)";
+}
+
+function loadingView(loadingBool) {
+    let loadPage = document.getElementById('加载中页面');
+    if (loadingBool == true)  {
+        loadPage.innerHTML = '正在加载中';
+    }
+    else {
+        loadPage.innerHTML = '加载完毕';
+    }
 }
