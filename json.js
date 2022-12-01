@@ -176,10 +176,10 @@ function generateSentence() {
 
     // 绘制加载中页面
     // 开始加载
-    var loadingInterval = setInterval( loadingCount(), 1000);
+    var loadingInterval = setInterval( loadingCount, 1000);
     // 插入 QR code
     var img = new Image();
-    
+
     // //绘制图片  
     // img.src = './image/webQRcode.png';
     img.crossOrigin="anonymous";
@@ -187,7 +187,6 @@ function generateSentence() {
         clearInterval(loadingInterval); // 结束加载
         let loadingID = document.getElementById('加载中页面');
         loadingID.innerHTML = '';
-        // loadPage.innerHTML = '';
         // Draw the image onto the context
         ctx.drawImage(img, 333*ratio, 650*ratio ,202*ratio , 102*ratio);
         // var imgTag = canvas.toDataURL('image/png',1.0);
