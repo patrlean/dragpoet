@@ -164,15 +164,16 @@ function generateSentence() {
     ctx.fillText('累计 '+ wordsNum +' 字' + ', 共 ' + lineNum + ' 行',70*ratio,670*ratio);
 
     // 扫码关注一点成电 扫码开始创作
-    let footHeight = 770;
+    let footHeight = 730;
     footFontsize = footFontsize * ratio;
     ctx.font=footFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
-    ctx.fillText('扫码关注一点成电', 335*ratio,footHeight*ratio);
+    ctx.fillText('扫码关注', 420*ratio,footHeight*ratio);
+    ctx.fillText('一点成电', 420*ratio,footHeight*ratio + 15 * ratio);
 
     ctx.font= footFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
-    ctx.fillText('扫码开始创作', 452*ratio,footHeight*ratio);
+    ctx.fillText('扫码创作', 480*ratio,footHeight*ratio);
 
     // 绘制加载中页面
     // 开始加载
@@ -188,7 +189,7 @@ function generateSentence() {
         let loadingID = document.getElementById('加载中页面');
         loadingID.innerHTML = '';
         // Draw the image onto the context
-        ctx.drawImage(img, 333*ratio, 650*ratio ,202*ratio , 102*ratio);
+        ctx.drawImage(img, 414*ratio, 650*ratio ,121*ratio , 61*ratio);
         // var imgTag = canvas.toDataURL('image/png',1.0);
         // document.getElementById("输出图像图像页面").src = imgTag;
         // 生成图像
