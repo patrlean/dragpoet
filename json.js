@@ -169,7 +169,7 @@ function generateSentence() {
     ctx.font=footFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
     ctx.fillText('扫码关注', 420*ratio,footHeight*ratio);
-    ctx.fillText('一点成电', 420*ratio,footHeight*ratio + 15 * ratio);
+    // ctx.fillText('一点成电', 420*ratio,footHeight*ratio + 15 * ratio);
 
     ctx.font= footFontsize + "px myFont";
     ctx.fillStyle = "#ddd7b9";
@@ -199,6 +199,7 @@ function generateSentence() {
         imgPageSingle.innerHTML = '<img style="text-align: center;width: 300px;height: 400px;border-radius:15px;" src="' + dataImg.src + '" alt="拼贴诗词" width = "450px" height = "600px">';
     }
     img.src = 'https://raw.githubusercontent.com/patrlean/images/main/yidianQRwebQRspace.png';
+    // img.src = 'yidianQRwebQRspace.png';
     // img.src = 'https://img-blog.csdnimg.cn/a00bbd3cc2f74cc0b1f77e5e4ec67131.png';
     // 设置display变换
     var page = document.getElementById("拼词页面");
